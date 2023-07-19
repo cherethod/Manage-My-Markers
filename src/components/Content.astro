@@ -1,0 +1,19 @@
+---
+import Sidebar from '../components/Sidebar.astro';
+import Dbform from '../components/Dbform.astro';
+// import Select_icon from './Select_icon.astro';
+---
+
+<div class="flex flex-row w-full h-full overflow-hidden" id="contentContainer">
+    <Sidebar></Sidebar>
+    <div id="content" class="bg-[#1f1f1f] w-full">
+        <Dbform></Dbform>
+        <!-- <Select_icon class="w-full h-full"></Select_icon> -->
+       
+    </div>
+</div>
+<style>
+    #content {
+        background-color: #1f1f1f !important;
+    }
+</style>

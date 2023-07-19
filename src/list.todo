@@ -1,0 +1,20 @@
+Code:
+    ☐ Ensure re-create the sidebar marker navigation when a new category, sub-category or marker is added/edited. @started(23-07-19 13:01)
+    ✔ Add icon markers functionality. @started(23-07-18 23:42) @done(23-07-19 13:00) @lasted(13h18m54s)
+    ✔ Add listener to close config settings 'pop-up' menu when you enter and leave the container. @done(23-07-18 23:42)
+    Searcher:
+        ☐ Beggin progress. @started(23-07-19 13:01)
+        ☐ Add filter button and settings.
+        ☐ Add functionality 
+
+Structure:
+    ☐ Restructure the Dbform to add the correct order when you tab between inputs. @started(23-07-18 23:42)
+
+Design:
+    ☐ Later, please...
+    ☐ Update styles to add variables will be used in the future in new config settings, like:
+        ☐ Change colors (themes).
+        ☐ Change font.
+        ☐ Font size?
+
+    
