@@ -1,7 +1,7 @@
-'use strict'
-import Swal from 'sweetalert2';
-import { activeIconSelector } from './iconSelector.js';
 
+'use strict'
+import Swal from './sweetalert2/src/sweetalert2.js'
+import { activeIconSelector } from './iconSelector.js';
 const nameElement = document.querySelector('#markernameInput');
 const categoryElement = document.querySelector('#categoryInput');
 const subcategoryElement = document.querySelector('#subcategoryInput');
@@ -23,7 +23,7 @@ const sidebarElements = document.querySelectorAll('.sidebar__btn');
 let isEditing = false;
 let editNode = null;
 let changeIconActived = false;
-export let categories = {};
+let categories = {};
 let selectedIconToChange;
 
 const loadDefaultCategories = ()=> {
@@ -860,169 +860,6 @@ const showIconsToChange = async () => {
   }
 };
 
-// const showIconsToChange = async ()=> {
-//   try {
-//     const response = await fetch('./img/Icons/icons.svg');
-//     const responseContent = await response.text();
-//     const fragment = document.createDocumentFragment();
-//     let iconCollectionContainer = document.querySelector('#changeIconContainer');
-//     iconCollectionContainer.innerHTML = responseContent;
-//     let symbols = iconCollectionContainer.querySelectorAll('symbol');
-
-//     symbols.forEach(symbol => {
-//       const itemContainer = document.createElement('div');
-//       const itemSVG = document.createElement('svg');
-//       const itemUse = document.createElement('use');
-//       itemContainer.classList.add('marker__icon--item');
-//       itemSVG.classList.add('icon');
-//       itemSVG.setAttribute('width', '44');
-//       itemSVG.setAttribute('height', '44');
-//       itemUse.setAttribute('xlink:href', `./img/Icons/icons.svg#${symbol.id}`)
-//       itemSVG.append(itemUse);
-//       itemContainer.appendChild(itemSVG);
-//       fragment.appendChild(itemContainer);
-//     })
-//       iconCollectionContainer.appendChild(fragment);
-//     // console.log(iconCollectionContainer.children[0].children.length)
-//     // fragment.appendChild(iconCollectionContainer);
-//     // return fragment;
-    
-//   } catch (error) {
-//     console.error('Error fetching SVG:', error);
-//   }
-// }
-
-// const editEntry = (entryParent) => {
-//   const values = entryParent.children;
-//   const oldValues = Array.from(values).map((element) => element.innerHTML);
-//   if (!isEditing) {
-//     isEditing = true;
-//     document.querySelector('#iconSelectionToggle').classList.add('disabled');
-//     document.querySelector('#markerIconSelection').classList.add('disabled');
-//     document.querySelector('#submitLink').classList.add('disabled');
-//     categoryElement.disabled = true;
-//     subcategoryElement.disabled = true;
-//     nameElement.disabled = true;
-//     editNode = entryParent;
-//     entryParent.classList.add('edit__mode')
-//     let name = values[0].textContent;
-//     let category = values[1].textContent;
-//     let subcategory = values[2].textContent;
-//     let description = values[3].textContent;
-//     let link = values[4].textContent;
-
-
-//     while (entryParent.children.length > 0) {
-//       entryParent.removeChild(entryParent.children[0])
-//     }
-
-//     const fragment = document.createDocumentFragment();
-
-//     let nameNode = document.createElement('input');
-//     nameNode.setAttribute('type', 'text');
-//     nameNode.value = name;
-//     nameNode.setAttribute('class', astroClass);
-//     fragment.appendChild(nameNode);
-
-//     let categoryNode = document.createElement('select');
-//     categoryNode.setAttribute('class', astroClass);
-//     categoryNode.appendChild(getCategory());
-//     categoryNode.addEventListener('change', (e) => {
-//       clearElement(entryParent.children[1])
-//       entryParent.children[1].appendChild(getSubCategory(e.target.value))
-//     })
-//     fragment.appendChild(categoryNode);
-
-//     let subcategoryNode = document.createElement('select');
-//     subcategoryNode.setAttribute('class', astroClass);
-//     subcategoryNode.appendChild(getSubCategory(category));
-//     fragment.appendChild(subcategoryNode);
-
-//     let descriptionNode = document.createElement('input');
-//     descriptionNode.setAttribute('type', 'text');
-//     descriptionNode.value = description;
-//     descriptionNode.setAttribute('class', astroClass);
-//     fragment.appendChild(descriptionNode);
-
-//     let linkNode = document.createElement('input');
-//     linkNode.setAttribute('type', 'text');
-//     linkNode.value = link;
-//     linkNode.setAttribute('class', astroClass);
-//     fragment.appendChild(linkNode);
-
-
-//     let tools = document.createElement('div');
-//     let iconBtn = document.createElement('div');
-//     let iconsContainer = document.createElement('div');
-//     let editBtn = document.createElement('div');
-//     let deleteBtn = document.createElement('div');
-    
-//     // let iconCollectionObject = document.createElement('object');
-//     // iconCollectionObject.id = 'iconsSprite';
-//     // iconCollectionObject.setAttribute('type', 'image/svg+xml');
-//     // iconCollectionObject.data = './img/Icons/icons.svg';
-//     // iconCollectionContainer.appendChild(iconCollectionObject);
-//     tools.setAttribute('class', `link-tools ${astroClass}`);
-//     iconBtn.setAttribute('class', `entry__icon--btn ${astroClass}`);
-//     iconBtn.innerHTML = iconBtnSVG;
-//     iconsContainer.id = 'changeIconContainer';
-//     iconBtn.appendChild(iconsContainer);
-//     iconBtn.addEventListener('click', async ()=> {
-//       document.querySelector('#changeIconContainer').classList.toggle('active');
-//       if (!changeIconActived) {
-//         changeIconActived = true;
-//         showIconsToChange();
-//         // iconBtn.appendChild(showIconsToChange());
-//       }
-//       // alert()
-//     })
-
-//     // iconBtn.appendChild(iconCollectionContainer);
-
-//     editBtn.setAttribute('class', `entry__edit--btn ${astroClass}`);
-//     editBtn.innerHTML = saveBtnSVG;
-//     editBtn.addEventListener('click', (e) => {
-//       const entryParent = e.target.closest('.result__entry');
-//       saveEntry(entryParent, oldValues);
-//     })
-
-//     deleteBtn.setAttribute('class', `entry__delete--btn ${astroClass}`);
-//     deleteBtn.innerHTML = deleteBtnSVG;
-//     deleteBtn.addEventListener('click', async (e) => {
-//       const entryName = `${e.target.closest('.result__entry').children[2].textContent} with URL: ${e.target.closest('.result__entry').children[3].textContent}`;
-//       const confirmed = await deleteEntryWarning('entry', entryName);
-//       if (confirmed) {
-//         const entryParent = e.target.closest('.result__entry');
-//         const entryName = entryParent.children[0].value;
-//         const entryDescription = entryParent.children[3].value;
-//         const entryURL = entryParent.children[4].value;
-//         if (removeEntry(entryName, entryDescription, entryURL)) {
-//           clearElement(entryParent);
-//           entryParent.parentNode.removeChild(entryParent);
-//         };
-//       }
-//     })
-//     tools.appendChild(iconBtn);
-//     tools.appendChild(editBtn);
-//     tools.appendChild(deleteBtn);
-//     fragment.appendChild(tools);
-//     entryParent.appendChild(fragment);
-
-//     for (let i = 0; i < entryParent.children[1].options.length; i++) {
-//       let option = entryParent.children[1].options[i];
-//       if (category === option.value) entryParent.children[1].selectedIndex = option.index;
-//     }
-//     for (let i = 0; i < entryParent.children[2].options.length; i++) {
-//       let option = entryParent.children[2].options[i];
-//       if (subcategory === option.value) {
-//         entryParent.children[1].selectedIndex = option.index;
-//       }
-//     }
-//   }
-
-
-// }
-
 const editEntry = (entryParent) => {
   const values = entryParent.children;
   const oldValues = Array.from(values).map((element) => element.innerHTML);
@@ -1397,6 +1234,138 @@ const importJSON = (file) => {
 };
 
 
+// SIDEBAR FUCNCTIONS
+const loadSidebarMenuData = () => {
+  clearElement(sidebarNavContainer);
+  const fragment = document.createDocumentFragment();
+  for (const category in categories) {
+    let ulElem = document.createElement('ul');
+    ulElem.classList.add('sidebar__category--list');
+    ulElem.addEventListener('click', (e) => {
+      const sidebarCategories = document.querySelectorAll('.sidebar__category--list');
+      const clickedCategory = e.target.closest('.sidebar__category--list');
+
+      sidebarCategories.forEach(sidebarCategory => {
+        if (sidebarCategory !== clickedCategory && sidebarCategory.classList.contains('active')) {
+          sidebarCategory.classList.remove('active');
+        }
+      });
+
+      (!clickedCategory.classList.contains('active')) ? clickedCategory.classList.add('active') : clickedCategory.classList.remove('active');
+    });
+    let categoryTitle = document.createElement('div');
+    categoryTitle.classList.add('sidebar__collapse--svg');
+    categoryTitle.innerHTML = extendMenuSVG;
+    let categoryName = document.createElement('p');
+    categoryName.textContent = category;
+    categoryTitle.appendChild(categoryName);
+    ulElem.appendChild(categoryTitle);
+    let subcategoriesContainer = document.createElement('div');
+    subcategoriesContainer.classList.add('sidebar__subcategory--container');
+    ulElem.appendChild(subcategoriesContainer);
+    const subcategories = categories[category];
+    for (const subcategory in subcategories) {
+      let subcategoryItem = document.createElement('li');
+      subcategoryItem.classList.add('sidebar__subcategory--list');
+      subcategoryItem.addEventListener('click', (e) => {
+        const sidebarSubcategories = document.querySelectorAll('.sidebar__subcategory--list');
+
+        e.stopPropagation(); // Evitar la propagación del evento al elemento padre (categoría) - Gracias ChatGPT :P
+
+        const clickedSubcategory = e.target.closest('.sidebar__subcategory--list');
+
+        sidebarSubcategories.forEach(sidebarSubcategory => {
+          if (sidebarSubcategory !== clickedSubcategory && sidebarSubcategory.classList.contains('active')) {
+            sidebarSubcategory.classList.remove('active');
+          }
+        });
+
+        (!clickedSubcategory.classList.contains('active')) ? clickedSubcategory.classList.add('active') : clickedSubcategory.classList.remove('active');
+      });
+      let subcategoryTitle = document.createElement('div');
+      subcategoryTitle.classList.add('sidebar__collapse--svg')
+      subcategoryTitle.innerHTML = extendMenuSVG;
+      let subcategoryName = document.createElement('p');
+      subcategoryName.textContent = subcategory;
+      subcategoryTitle.appendChild(subcategoryName);
+      subcategoryItem.appendChild(subcategoryTitle);
+      let markersList = document.createElement('ul');
+      markersList.classList.add('sidebar__markers--list');
+      const markers = subcategories[subcategory];
+      for (const marker of markers) {
+        let markerItem = document.createElement('li');
+        markerItem.classList.add('sidebar__marker--item');
+        let markerLink = document.createElement('a');
+        markerLink.href = marker.URL;
+        markerLink.setAttribute('target', '_blank');
+        markerLink.textContent = marker.name;
+        markerItem.appendChild(markerLink);
+        markersList.appendChild(markerItem);
+      }
+      subcategoryItem.appendChild(markersList);
+      subcategoriesContainer.appendChild(subcategoryItem);
+    }
+    fragment.appendChild(ulElem);
+    // addMarkerItemsListeners();
+  }
+  sidebarNavContainer.appendChild(fragment);
+}
+
+const searchMarkers = (query)=> {
+  query = query.toLowerCase();
+  const results = [];
+
+  for (const category in categories) {
+    for (const subcategory in categories[category]) {
+      const elements = categories[category][subcategory];
+      const matchedElements = elements.filter((element) => {
+        return (
+          category.toLocaleLowerCase().includes(query) ||
+          subcategory.toLocaleLowerCase().includes(query) ||
+          element.name.toLocaleLowerCase().includes(query) ||
+          element.description.toLocaleLowerCase().includes(query) ||
+          element.URL.toLocaleLowerCase().includes(query) 
+        )
+      });
+      if (matchedElements.length > 0) {
+        results.push({
+          category, 
+          subcategory,
+          elements: matchedElements,
+        });
+      };
+    };
+  };
+  return results;
+};
+
+const showMatchedResults = (results)=> {
+  const matchedResultsList = document.querySelector('#matchedResultsList');
+  matchedResultsList.innerHTML = '';
+
+  const fragment = document.createDocumentFragment();
+  results.forEach((result) => {
+    const matchItem = document.createElement('li');
+    matchItem.textContent = `Category: ${result.category} > Subcategory: ${result.subcategory}.`;
+    fragment.appendChild(matchItem);
+    result.elements.forEach((match) => {
+      const matchedMarker = document.createElement('li');
+      matchedMarker.textContent = `Name: ${match.name}, Description: ${match.description}, URL: ${match.URL}`
+      fragment.appendChild(matchedMarker);    
+    });
+  });
+  matchedResultsList.appendChild(fragment);
+}
+
+
+document.querySelector('#searchToolInput').addEventListener('input', (e)=> {
+  if (e.target.value.length > 0) {
+    const query = e.target.value;
+    const results = searchMarkers(query);
+    showMatchedResults(results);
+
+  }
+});
 
 //LISTENERS
 

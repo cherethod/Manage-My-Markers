@@ -17,10 +17,14 @@ const { title } = Astro.props;
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="stylesheet" href="./js/sweetalert2/dist/sweetalert2.css">
 		<link rel="stylesheet" href="./css/custom.css">
 	</head>
 	<body>
 		<slot />
+		
+
+		<script type="module" src="../js/menuFunctions.js"></script>
 	</body>
 </html>
 
