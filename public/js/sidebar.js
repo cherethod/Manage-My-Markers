@@ -120,14 +120,49 @@ const showMatchedResults = (results)=> {
 
   const fragment = document.createDocumentFragment();
   results.forEach((result) => {
-    const matchItem = document.createElement('li');
-    matchItem.textContent = `Category: ${result.category} > Subcategory: ${result.subcategory}.`;
-    fragment.appendChild(matchItem);
+    let itemsFound = 0;    
+    const matchItemCategory = document.createElement('ul');
+    matchItemCategory.classList.add('result__category--container');
+    const matchCategoryContainer = document.createElement('div');
+    matchCategoryContainer.classList.add('result__category--title')
+    matchCategoryContainer.innerHTML= extendMenuSVG;
+    const matchCategoryTitle = document.createElement('p');
+    matchCategoryTitle.textContent = result.category;
+    matchCategoryContainer.appendChild(matchCategoryTitle);                 
+
+    const matchItemSubcategory = document.createElement('ul');
+    matchItemSubcategory.classList.add('result__subcategory--container');
+    const matchSubcategoryContainer = document.createElement('div');
+    matchSubcategoryContainer.classList.add('result__subcategory--title')
+    matchSubcategoryContainer.innerHTML= extendMenuSVG;
+    const matchSubcategoryTitle = document.createElement('p');
+    matchSubcategoryTitle.textContent = result.subcategory;
+    matchSubcategoryContainer.appendChild(matchSubcategoryTitle);
+    matchItemSubcategory.appendChild(matchSubcategoryContainer);
+
+    const matchItemsContainer = document.createElement('div');
+    matchItemsContainer.classList.add('result__items--container');
     result.elements.forEach((match) => {
       const matchedMarker = document.createElement('li');
-      matchedMarker.textContent = `Name: ${match.name}, Description: ${match.description}, URL: ${match.URL}`
-      fragment.appendChild(matchedMarker);    
+      matchedMarker.textContent = `Name: ${match.name}, Description: ${match.description}, URL: ${match.URL}`;
+      matchedMarker.classList.add('result__item');
+      
+      matchItemSubcategory.appendChild(matchedMarker);    
+      itemsFound++;
     });
+    // matchItemSubcategory.appendChild(matchItemsContainer)
+    const itemCount = document.createElement('span');
+    if (itemsFound > 0) {
+      itemCount.textContent = itemsFound;
+      matchCategoryContainer.appendChild(itemCount);
+    }
+    matchItemCategory.appendChild(matchCategoryContainer);
+    matchItemCategory.appendChild(matchItemSubcategory);
+
+    // matchItemCategory.appendChild(matchCategoryContainer);
+
+    // matchItemCategory.appendChild(matchItemSubcategory);
+    fragment.appendChild(matchItemCategory)
   });
   matchedResultsList.appendChild(fragment);
 }

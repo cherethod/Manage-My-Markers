@@ -16,11 +16,13 @@ Design:
         ☐ Change colors (themes).
         ☐ Change font.
         ☐ Font size?
+    ☐ Change side border when sidebar menu changes to right.
 Knowed issues:
-    ☐ ISSUE: Si se añade una subcategoria y esta extendido el sidebar con el explorador, que no se quite la clase active o se vuelva a añadir a la categoria selectionada. @started(23-07-20 04:33)
-    ☐ ISSUE: Si se borra una categoria los elementos se siguen mostrando en la lista de markers hasta actualizar.
+    ☐ BUG: If a subcategory is added and the sidebar is expanded with the explorer, the 'active' class should not be removed or added again to the selected category. @started(23-07-20 04:33)
+    ☐ BUG: If a category is deleted, the elements continue to be displayed in the list of markers until refreshing the page tab. @started(23-07-20 14:44)
 
-
+Brainstorming:
+    ☐ SIDEBAR: Add extension tab to add a collection of useful plugins.
     
 
 

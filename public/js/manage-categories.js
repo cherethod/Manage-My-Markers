@@ -89,7 +89,8 @@ const showSubcategoryList = (categorySelected) => {
             delete categories[categorySelectedName][subcategoryName]
             localStorage.setItem('customCategories', JSON.stringify(categories));
             e.target.closest('.subcategory-list').removeChild(e.target.closest('.subcategory__list--item'));
-            document.getElementById('formResult').appendChild(loadEntries());
+           loadEntries();
+           loadSidebarMenuData();
           }
         });
         item.appendChild(deleteBtn);
@@ -130,7 +131,8 @@ const showCategoryList = () => {
         localStorage.setItem('customCategories', JSON.stringify(categories));
         e.target.closest('.category-list').removeChild(e.target.closest('.category__list--item'));
         showSubcategoryList(categoryName);
-        document.getElementById('formResult').appendChild(loadEntries());
+        loadEntries();
+        loadSidebarMenuData();
 }
     });
     item.appendChild(deleteBtn);

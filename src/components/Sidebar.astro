@@ -16,9 +16,20 @@
         <nav class="sidebar__searcher--container pt-2 w-full h-full">     
             <input type="search" id="searchToolInput" class=" bg-[#2a2a2a] border border-[#666666] mx-auto w-[90%] px-2 py-[2px] text-white">      
             <div id="searchResultsContainer" class="h-full">
-                <ul id="matchedResultsList" class="flex flex-col overflow-y-scroll max-h-[95%] mt-[2%] [&>li]:border [&>li]:text-sm">
+                <div 
+                id="matchedResultsList" 
+                class="
+                flex flex-col overflow-y-scroll max-h-[95%] mt-[2%]
+                [&>ul]:text-sm 
+                [&>ul>div]:flex [&>ul>div:hover]:cursor-pointer [&>ul>div:hover]:bg-[#2a2a2a] [&>ul>div]:justify-evenly
+                [&>ul>div>p]:w-[90%] [&>ul>div>p]:bg-red-500 [&>ul>div>p]:py-1 [&>ul>div>svg]:flex [&>ul>div>svg]:m-auto
+                [&>ul>div>span]:bg-[#1242f2] [&>ul>div>span]:mr-2 [&>ul>div>span]:min-h-[25px] [&>ul>div>span]:min-w-[25px] [&>ul>div>span]:flex [&>ul>div>span]:place-items-center [&>ul>div>span]:place-content-center [&>ul>div>span]:rounded-3xl
+                [&>ul>ul>div]:flex [&>ul>ul>div]:cursor-pointer [&>ul>ul>div]:pl-4 [&>ul>ul>div:hover]:bg-[#2a2a2a]
+                [&>ul>ul>div>svg]:flex [&>ul>ul>div>svg>g]:place-self-end [&>ul>ul>div>svg]:w-max [&>ul>ul>div>svg]:bg-purple-500
+                [&>ul>ul>div>p]:w-full [&>ul>ul>div>p]:text-left 
+                ">
 
-                </ul>
+                </div>
             </div>
         </nav>
     </div>

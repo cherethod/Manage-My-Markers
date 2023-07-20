@@ -75,5 +75,5 @@ loadSidebarMenuData();
 activeIconSelector();
 resetEntryFormValues();
 
-document.getElementById('formResult').appendChild(loadEntries());
+loadEntries();
 export {categories}

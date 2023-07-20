@@ -84,7 +84,14 @@ const insertLink = () => {
   }
 }  
 const loadEntries = () => { 
+  const entriesContainer = document.querySelector('#formResult')
   let fragment = document.createDocumentFragment();
+  clearElement(entriesContainer);
+  const titles = document.createElement('div');
+  titles.innerHTML = `<p class="entry__name astro-FDMGHVX6">Name</p><p class="category astro-FDMGHVX6">Category</p><p class="subcategory astro-FDMGHVX6">Sub-category</p><p class="description astro-FDMGHVX6">Description</p><p class="link astro-FDMGHVX6">URL direction</p><p class="astro-FDMGHVX6">Edit / Delete</p>` 
+  titles.id = "entry-titles"
+  titles.setAttribute('class', `result__entry--title ${astroClass}`)
+  fragment.appendChild(titles);
 
   for (const category in categories) {
     for (const subcategory in categories[category]) {
@@ -156,7 +163,7 @@ const loadEntries = () => {
       }
     }
   }
-  return fragment;
+  entriesContainer.appendChild(fragment);
 }  
 const addEntry = async () => {
   const chceckDuplicateLink = (link) => {
@@ -600,8 +607,9 @@ const resetEntryFormValues = ()=> {
   nameElement.value = '';
   categoryElement.selectedIndex = 0;
   subcategoryElement.selectedIndex = 0;
-  descriptionElement.value = '';
+  descriptionElement.value = '';  
   linkElement.value = '';
+  document.querySelector('#searchToolInput').value = "";
   if (document.querySelector('.marker__icon--item.selected') != null) document.querySelector('.marker__icon--item.selected').classList.remove('selected');
   document.querySelector('#selectedIconName').textContent = 'Select an icon...';
 }
@@ -681,16 +689,7 @@ const managementListeners = () => {
   /* Show edit markers container */
   document.getElementById('dbConfigOptions-editMarkers').addEventListener('click', () => {
     hideConfigContainers();
-    const container = document.querySelector('#formResult')
-    // let entries  = document.querySelectorAll('.result__entry');
-    if (container.children.length > 1) {
-      console.log('dentro de if')
-       for ( let i = 1; i < container.children.length; i++) {
-        const elem = container.children[i];
-        document.querySelector('#formResult').removeChild(elem);
-       }
-      }
-    document.getElementById('formResult').appendChild(loadEntries());
+   loadEntries();
     resetEntryFormValues();
     document.getElementById('configMarkersContainer').classList.add('active');
   });
