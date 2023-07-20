@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             iconsContainer.classList.remove('active');
             iconSelectedText.textContent = `Selected icon: ${e.target.closest('.marker__icon--item').children[0].children[0].href.baseVal.split('#')[1]}`
-            console.log(selectedIcon)
-            console.log(e.target.closest('.marker__icon--item').children[0].children[0].href.baseVal.split('#')[1])
+            // console.log(selectedIcon)
+            // console.log(e.target.closest('.marker__icon--item').children[0].children[0].href.baseVal.split('#')[1])
         });
     });
 });
