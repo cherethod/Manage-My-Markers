@@ -3,6 +3,7 @@ import { clearElement, loadDefaultCategories } from './functions.js';
 import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
 import { loadSidebarMenuData } from './sidebar.js';
 import { getCategory, showCategoryList, getSubCategory, addNewSubcategory, addNewCategory, manageCategoriesListeners } from './manage-categories.js';
+import { closePopup } from './sweetalert2/src/instanceMethods.js';
 const nameElement = document.querySelector('#markernameInput');
 const categoryElement = document.querySelector('#categoryInput');
 const subcategoryElement = document.querySelector('#subcategoryInput');
@@ -82,7 +83,7 @@ const insertLink = () => {
     console.log('dentro else');
   }
 }  
-const loadEntries = () => {
+const loadEntries = () => { 
   let fragment = document.createDocumentFragment();
 
   for (const category in categories) {
@@ -680,6 +681,17 @@ const managementListeners = () => {
   /* Show edit markers container */
   document.getElementById('dbConfigOptions-editMarkers').addEventListener('click', () => {
     hideConfigContainers();
+    const container = document.querySelector('#formResult')
+    // let entries  = document.querySelectorAll('.result__entry');
+    if (container.children.length > 1) {
+      console.log('dentro de if')
+       for ( let i = 1; i < container.children.length; i++) {
+        const elem = container.children[i];
+        document.querySelector('#formResult').removeChild(elem);
+       }
+      }
+    document.getElementById('formResult').appendChild(loadEntries());
+    resetEntryFormValues();
     document.getElementById('configMarkersContainer').classList.add('active');
   });
   /* Show import custom settings container */

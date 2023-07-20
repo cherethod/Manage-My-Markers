@@ -16,7 +16,10 @@ Design:
         ☐ Change colors (themes).
         ☐ Change font.
         ☐ Font size?
-    ☐ Pijada: Si se añade una subcategoria y esta extendido el sidebar con el explorador, que no se quite la clase active o se vuelva a añadir a la categoria selectionada.
+Knowed issues:
+    ☐ ISSUE: Si se añade una subcategoria y esta extendido el sidebar con el explorador, que no se quite la clase active o se vuelva a añadir a la categoria selectionada. @started(23-07-20 04:33)
+    ☐ ISSUE: Si se borra una categoria los elementos se siguen mostrando en la lista de markers hasta actualizar.
+
 
     
 

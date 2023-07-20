@@ -89,7 +89,7 @@ const showSubcategoryList = (categorySelected) => {
             delete categories[categorySelectedName][subcategoryName]
             localStorage.setItem('customCategories', JSON.stringify(categories));
             e.target.closest('.subcategory-list').removeChild(e.target.closest('.subcategory__list--item'));
-
+            document.getElementById('formResult').appendChild(loadEntries());
           }
         });
         item.appendChild(deleteBtn);
@@ -103,6 +103,7 @@ const showSubcategoryList = (categorySelected) => {
 }  
 const showCategoryList = () => {
   const categoryContainer = document.querySelector('#categoriesList');
+  
   const fragment = document.createDocumentFragment();
   if (categoryContainer.children.length > 0) {
     while (categoryContainer.children.length > 0) {
@@ -128,9 +129,8 @@ const showCategoryList = () => {
         delete categories[categoryName];
         localStorage.setItem('customCategories', JSON.stringify(categories));
         e.target.closest('.category-list').removeChild(e.target.closest('.category__list--item'));
-       showSubcategoryList(categoryName);
-       loadSidebarMenuData();
-    
+        showSubcategoryList(categoryName);
+        document.getElementById('formResult').appendChild(loadEntries());
 }
     });
     item.appendChild(deleteBtn);
