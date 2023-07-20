@@ -241,13 +241,6 @@ const addEntry = async () => {
     container.appendChild(tools);
     fragment.appendChild(container);
 
-    console.log("categoryElement.value:", categoryElement.value);
-    console.log("subcategoryElement.value:", subcategoryElement.value);
-    console.log("nameElement.value:", nameElement.value);
-    console.log("descriptionElement.value:", descriptionElement.value);
-    console.log("linkElement.value:", linkElement.value);
-    console.log("iconName:", iconName);
-
 
     categories[categoryElement.value][subcategoryElement.value].push({
       name: nameElement.value,
@@ -260,7 +253,6 @@ const addEntry = async () => {
   }
   resetEntryFormValues();
   loadSidebarMenuData();
-  // console.log(categories)
 }
 const removeEntry = (name, description, link) => {
 for (const category in categories) {
@@ -413,7 +405,6 @@ const editEntry = (entryParent) => {
         showIconsToChange();
         // iconBtn.appendChild(showIconsToChange());
       }
-      // alert()
     });
 
     // iconBtn.appendChild(iconCollectionContainer);
@@ -463,7 +454,6 @@ const editEntry = (entryParent) => {
       }
     }
   }
-  console.log(categories)
 };  
 const saveEntry = (entryParent, oldValues) => {
   const values = entryParent.children;
@@ -568,8 +558,6 @@ const saveEntry = (entryParent, oldValues) => {
   subcategoryElement.disabled = false;
   editNode = null;
   let icon = undefined;
-  alert(oldIcon)
-  alert(selectedIconToChange)
   // Agregar el nuevo elemento al objeto categories
   if (category && subcategory && name && description && link) {
     if (oldIcon !== selectedIconToChange && selectedIconToChange !== undefined) {
@@ -583,7 +571,6 @@ const saveEntry = (entryParent, oldValues) => {
       URL: link, 
       icon: icon
     };
-    console.log(`primer new icon: ${newEntry.icon}`)
     if (!categories[category]) {
       categories[category] = { [subcategory]: [newEntry] };
     } else {

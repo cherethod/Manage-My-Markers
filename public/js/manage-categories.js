@@ -121,19 +121,20 @@ const showCategoryList = () => {
     const deleteBtn = document.createElement('div');
     deleteBtn.innerHTML = deleteBtnSVG;
     deleteBtn.addEventListener('click', async (e) => {
-      const categoryName = e.target.closest('.category__list--item').setAttribute();
+      const categoryName = e.target.closest('.category__list--item').getAttribute('value');
       const confirmed = await deleteEntryWarning('category', `${categoryName} (and all its sub-categories)`);
-
+    
       if (confirmed) {
         delete categories[categoryName];
         localStorage.setItem('customCategories', JSON.stringify(categories));
         e.target.closest('.category-list').removeChild(e.target.closest('.category__list--item'));
-
-      }
+       showSubcategoryList(categoryName);
+       loadSidebarMenuData();
+    
+}
     });
     item.appendChild(deleteBtn);
     fragment.appendChild(item);
-
   }
   categoryContainer.appendChild(fragment);
 } 
@@ -164,7 +165,6 @@ const manageCategoriesListeners = () => {
     categoryElement.addEventListener('change', (e) => {
         setInputActive(false);
         subcategoryElement.appendChild(getSubCategory(e.target.value));
-        console.log(e)
         subcategoryElement.selectedIndex = 0;
     });
     /* Edit categories - Input sub-category listener on change option -> when category and sub-category are been selecteds enable link and description inputs. */
@@ -185,7 +185,6 @@ const manageCategoriesListeners = () => {
         const categorySelected = document.querySelector(('.category__list--item-selected'));
         if (categorySelected !== null) {
             if (subcategoryInput.value !== '') {
-                console.log(`addNewSubcategory(${categorySelected.textContent}, ${subcategoryInput.value})`)
                 addNewSubcategory(categorySelected.getAttribute('value'), subcategoryInput.value);
                 subcategoryInput.value = '';
             }
