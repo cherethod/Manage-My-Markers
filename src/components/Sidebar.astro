@@ -93,12 +93,20 @@
 </div>
 <!-- <script src="../../public/js/sidebar.js"></script> -->
 <style>
+#miniSidebarIcons {
+  z-index: 10;
+}
+#sidebar-extension {
+  z-index: 9;
+}
+
 #filterMenu {
   width: 0;
   height: 0;
   display: none;
   background-color: #2a2a2a;
   transition: all ease-in-out .3s;
+  z-index: 10;
 }
 #searchFilters.active > #filterMenu {
   width: max-content;

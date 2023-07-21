@@ -1,7 +1,7 @@
 
 'use strict'
 import { activeIconSelector } from './iconSelector.js';
-import { loadSidebarMenuData, searchMarkers, showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn, sidebarListeners } from './sidebar.js'
+import { loadSidebarMenuData, searchMarkers, showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn, sideBar, sidebarListeners } from './sidebar.js'
 import { loadDefaultCategories } from './functions.js';
 
 // import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';

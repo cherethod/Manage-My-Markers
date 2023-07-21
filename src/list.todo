@@ -26,7 +26,8 @@ Knowed issues:
 Brainstorming:
     ☐ SIDEBAR: Add extension tab to add a collection of useful plugins.
     
-
+To be checked:
+    ☐ When entry id deleted and new one is added this new entry shoud have the correct available ID;
 
 
 

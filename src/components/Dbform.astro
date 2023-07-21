@@ -1,154 +1,391 @@
 ---
-import Select_icon from './Select_icon.astro';
+import Select_icon from "./Select_icon.astro";
 ---
+
 <div class="db__container overflow-auto h-full">
-    <div class="flex flex-row text-white w-[95%] m-auto">        
-        <div id="configDB" class="cursor-pointer self-end ml-auto relative pt-2" title="Open setting options">
-            <div id="dbConfigOptions" class="absolute right-0 top-8 w-full min-w-max bg-[#1f1f1f] border z-10">
-                <ul id="dbConfigNav"  class="block w-full [&>li]:py-1 [&>li]:px-4 [&>li]:border [&>li:hover]:bg-gray-500">
-                    <li id="dbConfigOptions-editCategories">Edit categories</li>
-                    <li id="dbConfigOptions-editMarkers">Edit markers</li>
-                    <li id="dbConfigOptions-importCustomSettings">Import custom markers</li>
-                    <li id="dbConfigOptions-exportCustomSettings">Export custom markers</li>
-                    <li id="dbConfigOptions_closeSettings">Close settings</li>
-                </ul>
-            </div>
-            <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62V11l-2.378-.605z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  <div class="flex flex-row text-white w-[95%] m-auto">
+    <div
+      id="configDB"
+      class="cursor-pointer self-end ml-auto relative pt-2"
+      title="Open setting options"
+    >
+      <div
+        id="dbConfigOptions"
+        class="absolute right-0 top-8 w-full min-w-max bg-[#1f1f1f] border z-10"
+      >
+        <ul
+          id="dbConfigNav"
+          class="block w-full [&>li]:py-1 [&>li]:px-4 [&>li]:border [&>li:hover]:bg-gray-500"
+        >
+          <li id="dbConfigOptions-editCategories">Edit categories</li>
+          <li id="dbConfigOptions-editMarkers">Edit markers</li>
+          <li id="dbConfigOptions-importCustomSettings">Import custom markers
+          </li>
+          <li id="dbConfigOptions-exportCustomSettings">
+            Export custom markers
+          </li>
+          <li id="dbConfigOptions_closeSettings">Close settings</li>
+        </ul>
+      </div>
+      <svg
+        width="24px"
+        height="24px"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        color="currentColor"
+        ><path
+          d="M12 15a3 3 0 100-6 3 3 0 000 6z"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path><path
+          d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62V11l-2.378-.605z"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg>
     </div>
-    <div id="setDB" class="[&>div>div>h3]:py-2 [&>div>div>h3]:text-white">
-        <div id="configCategoriesContainer" class="grid-cols-2 w-full place-content-center [&>div]:w-[95%] [&>div]:mx-auto [&>div>div>input]:px-3">
-            <div id="confiCategories-col1">
-              <h3>Current categories</h3>
-              <div id="newCategoryContainer" class="flex flex-row gap-2">
-                <input id="newCategoryInput" type="text" placeholder="Insert new category" class="w-[75%]">
-                <button id="newCategoryBtn" class="w-[25%] bg-[#0078d4] text-white px-4 py-1 rounded hover:bg-[#036fc2]">Insert category</button>
-              </div>
-              <div id="categoriesList" class="w-full bg-white mt-2 category-list"></div>
-            </div>
-            <div id="confiCategories-col2">
-              <h3 class="flex gap-2 [&>span]:relative [&>span>div]:absolute [&>span>div]:w-[250px] [&>span>div]:bg-[#1f1f1f] [&>span>div]:p-4 [&>span>div]:border  [&>span>div]:text-center [&>span>div]:hidden [&>span:hover>div]:block">Current sub-categories <span class="cursor-pointer"><svg stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M12 11.5v5M12 7.51l.01-.011M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                  <div id="insertSubcategoryInfo"><p>To add a new sub-category, you need to have selected a category first. Once you have done that, you will see a list of sub-categories, and then you will be ready to add a new sub-category for the currently selected category.</p></div></span>
-              </h3>
-              <div id="newSubcategoryContainer" class="flex flex-row gap-2">
-                <input id="newSubcategoryInput" type="text" placeholder="Insert new sub-category" class="w-[75%]">
-                <button id="newSubcategoryBtn" class="w-[25%] bg-[#0078d4] text-white px-4 py-1 rounded hover:bg-[#036fc2]">Insert sub-category</button>
-              </div>
-              <div id="subcategoriesList" class="w-full bg-white mt-2 subcategory-list"></div>
-            </div>
-            <div class=" py-6 col-span-2 flex place-content-center"><button id="exportCategoriesBtn" class="w-[25%] bg-[#0078d4] text-white px-4 py-1 rounded hover:bg-[#036fc2]">Save and Export</button></div>
-        </div>          
-        <div id="configMarkersContainer" class="grid grid-cols-2 w-full place-items-center [&>div>input]:w-[100%] [&>div]:py-4 [&>div>select]:w-[100%] [&>div>select]:py-2 [&>div>select]:px-4 [&>div>h3]:py-2 [&>div>h3]:text-white [&>div>input]:py-1 [&>div>input]:px-4">  
-            <div id="nameContainer" class="w-[95%]">
-                <h3>Name</h3>
-                <input type="text" id="markernameInput" placeholder="Please enter a name for the marker">
-            </div>
-            <div id="markerIconContainer" class="w-[95%] relative">
-                <h3>Select icon</h3>
-                <Select_icon class=""></Select_icon>
-            </div>
-            <div id="categoryContainer" class="w-[95%]">
-                <h3>Category</h3>
-                <select name="category" id="categoryInput">
-                </select>
-            </div>
-            <div id="subcategoryContainer" class="w-[95%]">
-                <h3>Sub-category</h3>
-                <select name="subcategory" id="subcategoryInput">  
-                    <option value="default" disabled selected>Select a category first</option>
-                </select>              
-            </div>
-            <div id="linkContainer" class="w-[95%]">
-                <h3 class="flex gap-2 [&>span]:relative [&>span>div]:absolute [&>span>div]:w-[250px] [&>span>div]:bg-[#1f1f1f] [&>span>div]:p-4 [&>span>div]:border  [&>span>div]:text-center [&>span>div]:hidden [&>span:hover>div]:block">Link<span class="cursor-pointer"><svg stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M12 11.5v5M12 7.51l.01-.011M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <div id="insertSubcategoryInfo"><p>"You need to add the link with the protocol (ftp|http|https) for correct real-time validation. Once you add the new entry, sometimes the server blocks our status check, and you may receive a warning. Please make sure you have correctly entered the URL and press 'Yes, add it!'".</p></div></span>
-                </h3>
-                <input type="text" id="linkInput" placeholder="Insert url to site" disabled>
-            </div>                
-            <div id="descriptionContainer" class="w-[95%]">
-                <h3>Description</h3>
-                <input type="text" id="descriptionInput" placeholder="Insert site description" disabled>
-            </div>            
-            <div id="formSubmit" class="col-span-2 flex place-content-center py-5 w-[250px]">
-                <input type="submit" id="submitLink" value="Send Request" class="bg-[#0078d4] text-white px-4 py-3 rounded hover:bg-[#036fc2] cursor-pointer w-[250px]" title="Save entry"/>
-            </div>
-            <div id="formResult" class="col-span-2 h-full w-full px-4 pb-8 [&>div]:grid [&>div]:place-content-between [&>div>p]:flex [&>div>p]:place-content-center [&>div>p]:leading-10 [&>div>p]:h-full[&>div>p]:w-full [&>div>p]:text-center [&>div>p]:border [&>div>p]:text-white [&>div>div]:border">
-                <div class="result__entry--title" id="entry-titles"><p class="entry__name">Name</p><p class="category">Category</p><p class="subcategory">Sub-category</p><p class="description">Description</p><p class="link">URL direction</p><p>Edit / Delete</p></div>                          
+  </div>
+  <div id="setDB" class="[&>div>div>h3]:py-2 [&>div>div>h3]:text-white">
+    <div
+      id="configCategoriesContainer"
+      class="grid-cols-2 w-full place-content-center [&>div]:w-[95%] [&>div]:mx-auto [&>div>div>input]:px-3"
+    >
+      <div id="confiCategories-col1">
+        <h3>Current categories</h3>
+        <div id="newCategoryContainer" class="flex flex-row gap-2">
+          <input
+            id="newCategoryInput"
+            type="text"
+            placeholder="Insert new category"
+            class="w-[75%]"
+          />
+          <button
+            id="newCategoryBtn"
+            class="w-[25%] bg-[#0078d4] text-white px-4 py-1 rounded hover:bg-[#036fc2]"
+            >Insert category</button
+          >
+        </div>
+        <div id="categoriesList" class="w-full bg-white mt-2 category-list">
+        </div>
+      </div>
+      <div id="confiCategories-col2">
+        <h3
+          class="flex gap-2 [&>span]:relative [&>span>div]:absolute [&>span>div]:w-[250px] [&>span>div]:bg-[#1f1f1f] [&>span>div]:p-4 [&>span>div]:border [&>span>div]:text-center [&>span>div]:hidden [&>span:hover>div]:block"
+        >
+          Current sub-categories <span class="cursor-pointer"
+            ><svg
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              color="currentColor"
+              ><path
+                d="M12 11.5v5M12 7.51l.01-.011M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+            <div id="insertSubcategoryInfo">
+              <p>
+                To add a new sub-category, you need to have selected a category
+                first. Once you have done that, you will see a list of
+                sub-categories, and then you will be ready to add a new
+                sub-category for the currently selected category.
+              </p>
+            </div></span
+          >
+        </h3>
+        <div id="newSubcategoryContainer" class="flex flex-row gap-2">
+          <input
+            id="newSubcategoryInput"
+            type="text"
+            placeholder="Insert new sub-category"
+            class="w-[75%]"
+          />
+          <button
+            id="newSubcategoryBtn"
+            class="w-[25%] bg-[#0078d4] text-white px-4 py-1 rounded hover:bg-[#036fc2]"
+            >Insert sub-category</button
+          >
+        </div>
+        <div
+          id="subcategoriesList"
+          class="w-full bg-white mt-2 subcategory-list"
+        >
+        </div>
+      </div>
+      <div class="py-6 col-span-2 flex place-content-center">
+        <button
+          id="exportCategoriesBtn"
+          class="w-[25%] bg-[#0078d4] text-white px-4 py-1 rounded hover:bg-[#036fc2]"
+          >Save and Export</button>
+      </div>
+    </div>
+    <div
+      id="configMarkersContainer"
+      class="grid grid-cols-2 w-full place-items-center [&>div>input]:w-[100%] [&>div]:py-4 [&>div>select]:w-[100%] [&>div>select]:py-2 [&>div>select]:px-4 [&>div>h3]:py-2 [&>div>h3]:text-white [&>div>input]:py-1 [&>div>input]:px-4"
+    >
+      <div id="nameContainer" class="w-[95%]">
+        <h3>Name</h3>
+        <input
+          type="text"
+          id="markernameInput"
+          placeholder="Please enter a name for the marker"
+        />
+      </div>
+      <div id="markerIconContainer" class="w-[95%] relative">
+        <h3>Select icon</h3>
+        <Select_icon class="" />
+      </div>
+      <div id="categoryContainer" class="w-[95%]">
+        <h3>Category</h3>
+        <select name="category" id="categoryInput"> </select>
+      </div>
+      <div id="subcategoryContainer" class="w-[95%]">
+        <h3>Sub-category</h3>
+        <select name="subcategory" id="subcategoryInput">
+          <option value="default" disabled selected
+            >Select a category first</option
+          >
+        </select>
+      </div>
+      <div id="linkContainer" class="w-[95%]">
+        <h3
+          class="flex gap-2 [&>span]:relative [&>span>div]:absolute [&>span>div]:w-[250px] [&>span>div]:bg-[#1f1f1f] [&>span>div]:p-4 [&>span>div]:border [&>span>div]:text-center [&>span>div]:hidden [&>span:hover>div]:block"
+        >
+          Link<span class="cursor-pointer"
+            ><svg
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              color="currentColor"
+              ><path
+                d="M12 11.5v5M12 7.51l.01-.011M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+            <div id="insertSubcategoryInfo">
+              <p>
+                "You need to add the link with the protocol (ftp|http|https) for
+                correct real-time validation. Once you add the new entry,
+                sometimes the server blocks our status check, and you may
+                receive a warning. Please make sure you have correctly entered
+                the URL and press 'Yes, add it!'".
+              </p>
+            </div></span
+          >
+        </h3>
+        <input
+          type="text"
+          id="linkInput"
+          placeholder="Insert url to site"
+          disabled
+        />
+      </div>
+      <div id="descriptionContainer" class="w-[95%]">
+        <h3>Description</h3>
+        <input
+          type="text"
+          id="descriptionInput"
+          placeholder="Insert site description"
+          disabled
+        />
+      </div>
+      <div
+        id="formSubmit"
+        class="col-span-2 flex place-content-center py-5 w-[250px]"
+      >
+        <input
+          type="submit"
+          id="submitLink"
+          value="Send Request"
+          class="bg-[#0078d4] text-white px-4 py-3 rounded hover:bg-[#036fc2] cursor-pointer w-[250px]"
+          title="Save entry"
+        />
+      </div>
+      <div
+        id="formResult"
+        class="col-span-2 h-full w-full px-4 pb-8 [&>div]:grid [&>div]:place-content-between [&>div>p]:min-h-[42px] [&>div>p]:flex [&>div>p]:place-content-center [&>div>p]:leading-tight [&>div>p]:h-full [&>div>p]:w-full [&>div>p]:text-center [&>div>p]:border [&>div>p]:text-white [&>div>p]:px-2 [&>div>div]:border"
+      >
+        <div class="result__entry--title" id="entry-titles">
+          <p class="entry__name">Name</p><p class="category">Category</p><p
+            class="subcategory"
+          >
+            Sub-category
+          </p><p class="description">Description</p><p class="link">
+            URL direction
+          </p><p>Edit / Delete</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <template id="entryTitlesTemplate">
+    <div id="entry-titles" class="result__entry--title astro-FDMGHVX6">
+        <p class="entry__name astro-FDMGHVX6">Name</p>
+        <p class="category astro-FDMGHVX6">Category</p>
+        <p class="subcategory astro-FDMGHVX6">Sub-category</p>
+        <p class="description astro-FDMGHVX6">Description</p>
+        <p class="link astro-FDMGHVX6">URL direction</p>
+        <p class="astro-FDMGHVX6">Edit / Delete</p>
+    </div>
+  </template>
+  <template id="entryTemplate">
+    <div id="" class="result__entry astro-FDMGHVX6">
+      <p class="astro-FDMGHVX6 entry__name"></p>
+      <p class="astro-FDMGHVX6 entry__category"></p>
+      <p class="astro-FDMGHVX6 entry__subcategory"></p>
+      <p class="astro-FDMGHVX6 entry__description"></p>
+      <p class="astro-FDMGHVX6 entry__url"></p>
+      <div class="link-tools astro-FDMGHVX6">
+        <div class="entry__edit--btn astro-FDMGHVX6">
+          <svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><title>Edit marker</title><path   d="M14.363 5.652l1.48-1.48a2 2 0 012.829 0l1.414 1.414a2 2 0 010 2.828l-1.48 1.48m-4.243-4.242l-9.616 9.615a2 2 0 00-.578 1.238l-.242 2.74a1 1 0 001.084 1.085l2.74-.242a2 2 0 001.24-.578l9.615-9.616m-4.243-4.242l4.243 4.242" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div class="entry__delete--btn astro-FDMGHVX6">
+          <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor" ><title>Delete marker</title><path   d="M9.172 14.828L12.001 12m2.828-2.828L12.001 12m0 0L9.172 9.172M12.001 12l2.828 2.828M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"   stroke="currentColor"   stroke-width="1.5"   stroke-linecap="round"   stroke-linejoin="round"></path></svg>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template id="editEntryTemplate">
+    <input type="text" class="astro-FDMGHVX6 entry__edit--name">
+    <select class="astro-FDMGHVX6 entry__edit--category">
+    </select>
+    <select class="astro-FDMGHVX6 entry__edit--subcategory">
+    </select>
+        <textarea class="astro-FDMGHVX6 entry__edit--description"></textarea>  
+    <input type="text" class="astro-FDMGHVX6 entry__edit--url">
+    <div class="link-tools astro-FDMGHVX6">
+        <div class="entry__icon--btn astro-FDMGHVX6">
+            <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><title>Change icon</title><path d="M13 21H3.6a.6.6 0 01-.6-.6V3.6a.6.6 0 01.6-.6h16.8a.6.6 0 01.6.6V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 16l7-3 5.5 2.5M16 10a2 2 0 110-4 2 2 0 010 4zM16 19h3m3 0h-3m0 0v-3m0 3v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div id="changeIconContainer">
             </div>
         </div>
+        <div class="entry__edit--btn astro-FDMGHVX6">
+            <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><title>Save marker</title><path d="M3 7.5V5a2 2 0 012-2h11.172a2 2 0 011.414.586l2.828 2.828A2 2 0 0121 7.828V19a2 2 0 01-2 2H5a2 2 0 01-2-2v-2.5M6 21v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18 21v-7.4a.6.6 0 00-.6-.6H15M16 3v5.4a.6.6 0 01-.6.6h-1.9M8 3v3M1 12h11m0 0L9 9m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div class="entry__delete--btn astro-FDMGHVX6"><svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><title>Delete marker</title><path d="M9.172 14.828L12.001 12m2.828-2.828L12.001 12m0 0L9.172 9.172M12.001 12l2.828 2.828M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
     </div>
-    
-    <div id="importCustomMarkersContainer" class="h-[calc(100vh-64px)] place-content-center place-items-center">
-        <div id="dropBox" class="border-dashed border-2 p-5 text-center w-[75%] h-[75%] flex place-items-center place-content-center text-white text-4xl cursor-grab">
-            <div class="flex flex-col gap-6 place-items-center">
-                <svg class=" w-[150px]" viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><title>Upload custom markers</title><g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><g id='File' transform='translate(-192.000000, -384.000000)' fill-rule='nonzero'><g id='folder_upload_line' transform='translate(192.000000, 384.000000)'><path d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z' id='MingCute' fill-rule='nonzero'></path><path d='M9.51938,3 C10.1269,3 10.7016,3.27618 11.0811,3.75061 L12.4806,5.5 L20,5.5 C21.1046,5.5 22,6.39543 22,7.5 L22,19 C22,20.1046 21.1046,21 20,21 L4,21 C2.89543,21 2,20.1046 2,19 L2,5 C2,3.89543 2.89543,3 4,3 L9.51938,3 Z M9.51938,5 L4,5 L4,19 L20,19 L20,7.5 L12.4806,7.5 C11.8731,7.5 11.2984,7.22382 10.9189,6.74939 L9.51938,5 Z M12.7071,10.1729 L14.8284,12.2942 C15.219,12.6847 15.219,13.3179 14.8284,13.7084 C14.4379,14.099 13.8047,14.099 13.4142,13.7084 L13,13.2942 L13,16 C13,16.5523 12.5523,17 12,17 C11.4477,17 11,16.5523 11,16 L11,13.2942 L10.5858,13.7084 C10.1953,14.099 9.5621,14.099 9.17157,13.7084 C8.78105,13.3179 8.78105,12.6847 9.17157,12.2942 L11.2929,10.1729 C11.6834,9.78237 12.3166,9.78237 12.7071,10.1729 Z' fill='currentColor'></path></g></g></g></svg>
-                <p>Drag&Drop custom markers file here</p>
-                <p class=" text-xl">or</p>
-                <div id="dropBoxFileInput" class="bg-[#0078d4] text-white px-4 rounded hover:bg-[#036fc2] cursor-pointer w-[50%] py-4">Browse file</div>
-            </div>
-            
-           
-          </div>              
+  </template>
+  <div
+    id="importCustomMarkersContainer"
+    class="h-[calc(100vh-64px)] place-content-center place-items-center"
+  >
+    <div
+      id="dropBox"
+      class="border-dashed border-2 p-5 text-center w-[75%] h-[75%] flex place-items-center place-content-center text-white text-4xl cursor-grab"
+    >
+      <div class="flex flex-col gap-6 place-items-center">
+        <svg
+          class="w-[150px]"
+          viewBox="0 0 24 24"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          ><title>Upload custom markers</title><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" ><g   id="File"   transform="translate(-192.000000, -384.000000)"   fill-rule="nonzero"   ><g     id="folder_upload_line"     transform="translate(192.000000, 384.000000)"     ><path       d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z"       id="MingCute"       fill-rule="nonzero"></path><path       d="M9.51938,3 C10.1269,3 10.7016,3.27618 11.0811,3.75061 L12.4806,5.5 L20,5.5 C21.1046,5.5 22,6.39543 22,7.5 L22,19 C22,20.1046 21.1046,21 20,21 L4,21 C2.89543,21 2,20.1046 2,19 L2,5 C2,3.89543 2.89543,3 4,3 L9.51938,3 Z M9.51938,5 L4,5 L4,19 L20,19 L20,7.5 L12.4806,7.5 C11.8731,7.5 11.2984,7.22382 10.9189,6.74939 L9.51938,5 Z M12.7071,10.1729 L14.8284,12.2942 C15.219,12.6847 15.219,13.3179 14.8284,13.7084 C14.4379,14.099 13.8047,14.099 13.4142,13.7084 L13,13.2942 L13,16 C13,16.5523 12.5523,17 12,17 C11.4477,17 11,16.5523 11,16 L11,13.2942 L10.5858,13.7084 C10.1953,14.099 9.5621,14.099 9.17157,13.7084 C8.78105,13.3179 8.78105,12.6847 9.17157,12.2942 L11.2929,10.1729 C11.6834,9.78237 12.3166,9.78237 12.7071,10.1729 Z"       fill="currentColor"></path></g   ></g ></g
+          ></svg
+        >
+        <p>Drag&Drop custom markers file here</p>
+        <p class="text-xl">or</p>
+        <div
+          id="dropBoxFileInput"
+          class="bg-[#0078d4] text-white px-4 rounded hover:bg-[#036fc2] cursor-pointer w-[50%] py-4"
+        >
+          Browse file
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <style>
-    #dbConfigOptions.active {
-        display: block;
-    }
-    #dbConfigOptions {
-        display: none;
-    }
-    #configCategoriesContainer {
-        display: none;
-    }
-    #configCategoriesContainer.active {
-        display: grid;
-    }
-    #configMarkersContainer {
-        display: none;
-    }
-    #configMarkersContainer.active {
-        display: grid;
-    }
-    .result__entry--title {
-        padding: 0 !important;
-    }
-    #formResult > div {
-        grid-template-columns: 12% 15% 15% 25% 25% 8%;
-    }
-    .result__entry {
-        padding: 0 !important;        
-    }
-    .result__entry > p, .result__entry > div {
-        background-color: #fff;
-        color: #000 !important;
-    }
-    .edit__mode.result__entry > input, .edit__mode.result__entry > select {
-        width: 100% !important;
-        background-color: #68bdff;
-        text-align: center;
-        padding: 8px 0;
-        border-right: 1px solid #e5e7eb;
-    }
-    .result__entry > p {
-        user-select: none;
-        display: flex;
-        place-items: center;
-    }
-    .link-tools {
-        display: flex;
-        place-items: center;
-        place-content: center;
-        gap: 15px;
-    }
-    .entry__edit--btn, .entry__delete--btn {
-        cursor: pointer;
-    }
-    .entry__edit--btn:hover, .entry__delete--btn:hover {
-        transform: scale(1.2);
-    }
-    .entry__edit--btn {
-        color: #23be23;
-    }
-    .entry__delete--btn {
-        color: #c92828;
-    }
+#dbConfigOptions.active {
+    display: block;
+}
+#dbConfigOptions {
+    display: none;
+}
+#configCategoriesContainer {
+    display: none;
+}
+#configCategoriesContainer.active {
+    display: grid;
+}
+#configMarkersContainer {
+    display: none;
+}
+#configMarkersContainer.active {
+    display: grid;
+}
+.result__entry--title {
+    padding: 0 !important;
+}
+.result__entry--title > p {
+    place-items: center;   
+}
+
+
+.entry__edit--description {
+    width: 100%;
+    height: auto;
+    min-height: 42px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    white-space: normal;
+    word-wrap: break-word;
+    resize: none;
+    word-break: normal;
+    text-align: center;
+    box-sizing: border-box;   
+}
+#formResult > div {
+    grid-template-columns: 12% 15% 15% 25% 25% 8%;
+}
+.result__entry {
+    padding: 0 !important;
+}
+.result__entry > p,
+.result__entry > div {
+    background-color: #fff;
+    color: #000 !important;
+}
+.edit__mode.result__entry > input,
+.edit__mode.result__entry > select {
+    width: 100% !important;
+    background-color: #68bdff;
+    text-align: center;
+    padding: 8px 0;
+    border-right: 1px solid #e5e7eb;
+}
+.result__entry > p {
+    user-select: none;
+    display: flex;
+    place-items: center;
+}
+.link-tools {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    gap: 15px;
+}
+.entry__edit--btn,
+.entry__delete--btn {
+    cursor: pointer;
+}
+.entry__edit--btn:hover,
+.entry__delete--btn:hover {
+    transform: scale(1.2);
+}
+.entry__edit--btn {
+    color: #23be23;
+}
+.entry__delete--btn {
+    color: #c92828;
+}
 </style>
