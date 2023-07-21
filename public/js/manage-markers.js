@@ -1,4 +1,4 @@
-import { categories } from './menuFunctions.js';
+// import { categories } from './menuFunctions.js';
 import { clearElement, loadDefaultCategories } from './functions.js';
 import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
 import { loadSidebarMenuData } from './sidebar.js';
@@ -20,6 +20,8 @@ let isEditing = false;
 let editNode = null;
 let changeIconActived = false;
 let selectedIconToChange;
+
+let categories = loadDefaultCategories();
 // Returns default or custom markers database
 const searchAvailableID = () => {
     const entries = document.querySelectorAll('.result__entry');
@@ -698,29 +700,7 @@ const managementListeners = () => {
     hideConfigContainers();
     document.getElementById('importCustomMarkersContainer').classList.add('active');
   });
-  /* Call import new category in edit categories form */
-  document.getElementById('newCategoryBtn').addEventListener('click', (e) => {
-    const categoryInput = document.querySelector('#newCategoryInput');
-    const addNewCategory = async (category) => {
-      if (categories.hasOwnProperty(category)) {
-        await understoodWarning('A category with this name already exist');
-      }
-      else {
-        categories[category] = {};
-        localStorage.setItem('customCategories', JSON.stringify(categories));
-        categoryElement.appendChild(getCategory());
-        showCategoryList();
-        loadSidebarMenuData();
-      }
-    }
-    if (categoryInput.value !== '') {
-      addNewCategory(categoryInput.value);
-      categoryInput.value = '';
-    }
-    else {
-      understoodWarning('To add a new category, you must enter the name in order to add it')
-    }
-  });
+
 
 
 

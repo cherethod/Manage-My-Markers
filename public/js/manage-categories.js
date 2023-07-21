@@ -1,8 +1,10 @@
-import { categories } from './menuFunctions.js';
-import { clearElement } from "./functions.js";
+// import { categories } from './menuFunctions.js';
+// import { clearElement } from "./functions.js";
 import { setInputActive, categoryElement, subcategoryElement, linkElement, resetEntryFormValues, loadEntries, hideConfigContainers, URLRegex, insertLink, managementListeners, isEditing, deleteBtnSVG } from "./manage-markers.js";
 import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
-import { loadSidebarMenuData, searchMarkers, showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn, sidebarElements, sideBar } from './sidebar.js'
+import { loadSidebarMenuData } from './sidebar.js';
+import { clearElement, loadDefaultCategories } from './functions.js'
+let categories = loadDefaultCategories();
 const getCategory = () => {
     if (!isEditing) clearElement(categoryElement);
     const fragment = document.createDocumentFragment();
@@ -104,7 +106,7 @@ const showSubcategoryList = (categorySelected) => {
 }  
 const showCategoryList = () => {
   const categoryContainer = document.querySelector('#categoriesList');
-  
+  categories = loadDefaultCategories();
   const fragment = document.createDocumentFragment();
   if (categoryContainer.children.length > 0) {
     while (categoryContainer.children.length > 0) {
@@ -123,6 +125,8 @@ const showCategoryList = () => {
     const deleteBtn = document.createElement('div');
     deleteBtn.innerHTML = deleteBtnSVG;
     deleteBtn.addEventListener('click', async (e) => {
+      categories = loadDefaultCategories();
+      console.log(categories)
       const categoryName = e.target.closest('.category__list--item').getAttribute('value');
       const confirmed = await deleteEntryWarning('category', `${categoryName} (and all its sub-categories)`);
     
@@ -130,6 +134,8 @@ const showCategoryList = () => {
         delete categories[categoryName];
         localStorage.setItem('customCategories', JSON.stringify(categories));
         e.target.closest('.category-list').removeChild(e.target.closest('.category__list--item'));
+        categories = loadDefaultCategories();
+        console.log(categories)
         showSubcategoryList(categoryName);
         loadEntries();
         loadSidebarMenuData();
@@ -141,23 +147,28 @@ const showCategoryList = () => {
   categoryContainer.appendChild(fragment);
 } 
 const addNewCategory = async (category) => {
+  categories = loadDefaultCategories();
+  // console.log(categories)
   if (categories.hasOwnProperty(category)) {
     await understoodWarning('A category with this name already exist');
   }
   else {
     categories[category] = {};
     localStorage.setItem('customCategories', JSON.stringify(categories));
+    categories = loadDefaultCategories();
     categoryElement.appendChild(getCategory());
     showCategoryList();
     loadSidebarMenuData();
   }
 }
 const addNewSubcategory = async (category, subcategory) => {
+  categories = loadDefaultCategories();
   if (categories[category].hasOwnProperty(subcategory)) {
     await understoodWarning('A aub-category with this name already exist');
   } else {
     categories[category][subcategory] = [];
     localStorage.setItem('customCategories', JSON.stringify(categories));
+    categories = loadDefaultCategories();
     showSubcategoryList(category);
     loadSidebarMenuData();
   }
@@ -181,6 +192,29 @@ const manageCategoriesListeners = () => {
     linkElement.addEventListener('keyup', () => {
         URLRegex();
     });
+      /* Call import new category in edit categories form */
+  document.getElementById('newCategoryBtn').addEventListener('click', (e) => {
+    const categoryInput = document.querySelector('#newCategoryInput');
+    const addNewCategory = async (category) => {
+      if (categories.hasOwnProperty(category)) {
+        await understoodWarning('A category with this name already exist');
+      }
+      else {
+        categories[category] = {};
+        localStorage.setItem('customCategories', JSON.stringify(categories));
+        categoryElement.appendChild(getCategory());
+        showCategoryList();
+        loadSidebarMenuData();
+      }
+    }
+    if (categoryInput.value !== '') {
+      addNewCategory(categoryInput.value);
+      categoryInput.value = '';
+    }
+    else {
+      understoodWarning('To add a new category, you must enter the name in order to add it')
+    }
+  });
     /* Call import new sub-category in edit categories form */
     document.getElementById('newSubcategoryBtn').addEventListener('click', async (e) => {
         const subcategoryInput = document.querySelector('#newSubcategoryInput');

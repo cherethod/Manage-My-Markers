@@ -6,6 +6,8 @@ Code:
         ☐ Beggin progress. @started(23-07-19 13:01)
         ☐ Add filter button and settings.
         ☐ Add functionality 
+    Optimization:
+        ☐ Transform fragment spaghetti code in HTML templates. @started(23-07-21 11:04)
 
 Structure:
     ☐ Restructure the Dbform to add the correct order when you tab between inputs. @started(23-07-18 23:42)

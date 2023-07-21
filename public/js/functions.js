@@ -1,6 +1,6 @@
 // import { categories } from './menuFunctions.js';
 const clearElement = (parentElement) => {
-  console.log(`delete container: ${parentElement.id}`)
+  // console.log(`delete container: ${parentElement.id}`)
     if (!parentElement) {
         return; // Si parentElement es undefined o null, no hacemos nada y salimos de la función.
     }    

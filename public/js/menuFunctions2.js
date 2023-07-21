@@ -159,4 +159,4 @@ const removeSideBarActiveBtn = () => {
   };  
 
 
-export { loadSidebarMenuData, searchMarkers, showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn, sidebarElements, sideBar }
+export { loadSidebarMenuData, searchMarkers, showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn }
