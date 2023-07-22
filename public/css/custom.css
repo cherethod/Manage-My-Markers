@@ -10,7 +10,6 @@
   color: rgb(248, 57, 57);
   cursor: pointer;
 }
-
 .category-list > p:hover {
   background-color: #BFDBFE;
 }
@@ -26,7 +25,6 @@
   color: rgb(248, 57, 57);
   cursor: pointer;
 }
-
 .subcategory-list > p:hover {
   background-color: #BFDBFE;
 }
@@ -73,7 +71,6 @@
   background-color: #a5a4a48c;
   cursor: pointer;
 }
-
 .sidebar__category--list > .sidebar__collapse--svg, .sidebar__subcategory--list > .sidebar__collapse--svg {
   display: flex;
   flex-direction: row;
@@ -133,7 +130,6 @@
 .entry__icon--btn {
   position: relative !important;
 }
-
 .marker__icon--item.selected, .change__icon--item.selected {
   outline: 2px dashed #2dd4bf;
   /* background: rgb(73, 208, 241); */
@@ -174,10 +170,16 @@
 .change__icon--item:hover {
   outline: 2px solid #2dd4bf;
 }
+.sidebar__btn {
+  height: 42px;
+  width: 42px;
+  display: flex;
+  place-content: center;
+  place-items: center;  
+}
 #filesBtn2 > svg {
   transform: rotateY(180deg);
 }
-
 #contentContainer.left  {
   flex-direction: row;
 }
@@ -186,9 +188,8 @@
 }
 #contentContainer.left > #sidebarContainer > #miniSidebarIcons > .sidebar__btn.active {
   border: none;
-  border-left: 2px solid blue;
+  border-left: 2px solid blue !important;
 }
-
 #contentContainer.right  {
   flex-direction: row-reverse;
 }
@@ -199,3 +200,4 @@
   border: none;
   border-right: 2px solid blue;
 }
+

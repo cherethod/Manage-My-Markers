@@ -7,44 +7,10 @@ const extensionSideBar = document.querySelector('#sidebar-extension');
 const sidebarElements = document.querySelectorAll('.sidebar__btn');
 const matchedResultsList = document.querySelector('#matchedResultsList');
 const searchFilterMenu = document.getElementById('searchFilters');
-const searchFilterSettings = document.getElementById('filterSettings');
+
 const contentContainer = document.querySelector('#contentContainer');
 
 // SIDEBAR FUCNCTIONS
-
-
-const showMatchedResults = (results) => {
-  matchedResultsList.innerHTML = '';
-
-  const fragment = document.createDocumentFragment();
-  results.forEach((result) => {
-    const categoryTemplate = document.getElementById('matchedCategoryTemplate');
-    const categoryNode = categoryTemplate.content.cloneNode(true);
-    const categoryName = categoryNode.querySelector('.result__category--name');
-    categoryName.textContent = result.category;
-
-    const subcategoriesContainer = document.createElement('div');
-
-    result.elements.forEach((match) => {
-      const markerTemplate = document.getElementById('matchedItemTemplate');
-      const markerNode = markerTemplate.content.cloneNode(true);
-      const markerText = markerNode.querySelector('.result__item--link');
-      markerText.textContent = `Name: ${match.name}, Description: ${match.description}, URL: ${match.URL}`;
-      subcategoriesContainer.appendChild(markerNode);
-    });
-
-    const counter = categoryNode.querySelector('span');
-    const itemsFound = result.elements.length;
-    if (itemsFound > 0) {
-      counter.textContent = itemsFound;
-    }
-
-    fragment.appendChild(categoryNode);
-    fragment.appendChild(subcategoriesContainer);
-  });
-
-  matchedResultsList.appendChild(fragment);
-};
 
 
 const toggleSidebarContent = (id) => {
@@ -60,6 +26,8 @@ const toggleSidebarContent = (id) => {
           return '.sidebar__nav--container';
         case 'filesBtn2':
           return '.sidebar__searcher--container';
+        case 'filesBtn3':
+          return '.sidebar__extensions--container';
         // Add more cases for other buttons if needed
         default:
           return '';
@@ -85,9 +53,6 @@ const removeSideBarActiveBtn = () => {
       }
     }
 };  
-
-
-
 const sidebarListeners = () => {
   const sidebarElements = document.querySelectorAll('.sidebar__btn');
 
@@ -112,27 +77,10 @@ const sidebarListeners = () => {
     });
     });
 
-    searchFilterMenu.addEventListener('click', (e)=> {
-    const filterMenu = e.target.closest('#searchFilters');
-    // console.log(e);
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'SPAN' && e.target.tagName !== 'LABEL' && e.target.id !== 'filterMenu') {
-      filterMenu.classList.toggle('active');
-    }
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SPAN' || e.target.tagName === 'LABEL') {
-      const searchFilterOptions = searchFilterSettings.querySelectorAll('input');
-      searchFilterOptions.forEach((option) => {
-        if (e.target.value === 'filter-all' && option.value !== 'filter-all') {
-          option.checked = false;
-        }
-        else if (e.target.value !== 'filter-all' && option.value ==='filter-all') {
-          option.checked = false;
-        }
-      })
-    }
-  })
+ 
 
 }
 
 loadSidebarMenuData();
 
-export { showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn, sideBar, sidebarListeners, toggleSidebarPosition, searchFilterMenu  }
+export { toggleSidebarContent, removeSideBarActiveBtn, sideBar, sidebarListeners, toggleSidebarPosition, searchFilterMenu  }

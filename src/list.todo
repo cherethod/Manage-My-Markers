@@ -1,13 +1,20 @@
 Code:
-    ☐ Ensure re-create the sidebar marker navigation when a new category, sub-category or marker is added/edited. @started(23-07-19 13:01)
+    ✔ Ensure re-create the sidebar marker navigation when a new category, sub-category or marker is added/edited. @started(23-07-19 13:01) @done(23-07-22 13:51) @lasted(3d50m25s)
     ✔ Add icon markers functionality. @started(23-07-18 23:42) @done(23-07-19 13:00) @lasted(13h18m54s)
     ✔ Add listener to close config settings 'pop-up' menu when you enter and leave the container. @done(23-07-18 23:42)
     Searcher:
-        ☐ Beggin progress. @started(23-07-19 13:01)
-        ☐ Add filter button and settings.
-        ☐ Add functionality 
+        ✔ Beggin progress. @started(23-07-19 13:01) @done(23-07-22 13:51) @lasted(3d50m29s)
+        ✔ Add filter button and settings. @done(23-07-22 13:51)
+        ✔ Add functionality @done(23-07-22 13:51)
     Optimization:
         ☐ Transform fragment spaghetti code in HTML templates. @started(23-07-21 11:04)
+            ✔ addEntry @done(23-07-21 19:26)
+            ✔ loadEntries @done(23-07-21 19:49)
+            ✔ editEntry @done(23-07-21 20:23)
+            ✔ saveEntry @done(23-07-21 21:04)
+            ☐ showIconsToChange
+            ☐ showMatchedResults @started(23-07-22 13:59)
+            ☐ loadSidebarMenuData
 
 Structure:
     ☐ Restructure the Dbform to add the correct order when you tab between inputs. @started(23-07-18 23:42)
@@ -24,11 +31,14 @@ Knowed issues:
     ☐ BUG: If a category is deleted, the elements continue to be displayed in the list of markers until refreshing the page tab. @started(23-07-20 14:44)
 
 Brainstorming:
-    ☐ SIDEBAR: Add extension tab to add a collection of useful plugins.
+    ☐ SIDEBAR: Add extension tab to add a collection of useful plugins. @started(23-07-22 13:53)
     
 To be checked:
-    ☐ When entry id deleted and new one is added this new entry shoud have the correct available ID;
+    ☐ When entry is deleted and new one is added this new entry shoud have the correct available ID;
 
-
+Add my markers:
+    ☐ Add my favourite markers for desing
+    ☐ Explore my saved shorts and videos to add more markers
+    ☐ Find my contentcreators shorts to add more markers
 
     

@@ -3,7 +3,7 @@
 import { activeIconSelector } from './iconSelector.js';
 import { sidebarListeners, toggleSidebarPosition } from './sidebar.js'
 import { loadDefaultCategories } from './functions.js';
-import {loadSidebarMenuData, searcherListeners} from './searcher.js';
+import { searcherListeners} from './searcher.js';
 // import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
 import { setInputActive, categoryElement,  resetEntryFormValues, loadEntries, managementListeners} from './manage-markers.js'
 import{ getCategory, showCategoryList, getSubCategory, addNewSubcategory, addNewCategory, manageCategoriesListeners } from './manage-categories.js'
