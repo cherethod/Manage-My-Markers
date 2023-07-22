@@ -2,7 +2,8 @@
 // import { clearElement } from "./functions.js";
 import { setInputActive, categoryElement, subcategoryElement, linkElement, resetEntryFormValues, loadEntries, hideConfigContainers, URLRegex, insertLink, managementListeners, isEditing, deleteBtnSVG } from "./manage-markers.js";
 import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
-import { loadSidebarMenuData } from './sidebar.js';
+// import { loadSidebarMenuData } from './sidebar.js';
+import { loadSidebarMenuData } from './searcher.js';
 import { clearElement, loadDefaultCategories } from './functions.js'
 let categories = loadDefaultCategories();
 const getCategory = () => {

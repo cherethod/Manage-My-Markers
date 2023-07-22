@@ -1,33 +1,35 @@
 
 'use strict'
 import { activeIconSelector } from './iconSelector.js';
-import { loadSidebarMenuData, searchMarkers, showMatchedResults, toggleSidebarContent, removeSideBarActiveBtn, sideBar, sidebarListeners } from './sidebar.js'
+import { sidebarListeners, toggleSidebarPosition } from './sidebar.js'
 import { loadDefaultCategories } from './functions.js';
-
+import {loadSidebarMenuData, searcherListeners} from './searcher.js';
 // import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
 import { setInputActive, categoryElement,  resetEntryFormValues, loadEntries, managementListeners} from './manage-markers.js'
 import{ getCategory, showCategoryList, getSubCategory, addNewSubcategory, addNewCategory, manageCategoriesListeners } from './manage-categories.js'
 
 let categories = loadDefaultCategories();
 
-const contentContainer = document.querySelector('#contentContainer');
 //LISTENERS
 const enableEntriesListeners = () => {
 
   manageCategoriesListeners();
   managementListeners();
   sidebarListeners();
-  
+  searcherListeners();
   /* Move sidebar to left */
   document.getElementById('posLeftSide').addEventListener('click', () => {
-    contentContainer.style.flexDirection = 'row';
-    sideBar.style.flexDirection = 'row';
+    toggleSidebarPosition('left');
+    // contentContainer.style.flexDirection = 'row';
+    // sideBar.style.flexDirection = 'row';
   });
 
   /* Move sidebar to right */
   document.getElementById('posRightSide').addEventListener('click', () => {
-    contentContainer.style.flexDirection = 'row-reverse';
-    sideBar.style.flexDirection = 'row-reverse';
+    toggleSidebarPosition('right');
+    
+    // contentContainer.style.flexDirection = 'row-reverse';
+    // sideBar.style.flexDirection = 'row-reverse';
   });
 
   /* Deactive setting options menu on leave */

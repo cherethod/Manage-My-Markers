@@ -1,7 +1,9 @@
 // import { categories } from './menuFunctions.js';
 import { clearElement, loadDefaultCategories } from './functions.js';
 import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
-import { loadSidebarMenuData } from './sidebar.js';
+// import { loadSidebarMenuData } from './sidebar.js';
+import { loadSidebarMenuData } from './searcher.js';
+
 import { getCategory, showCategoryList, getSubCategory, addNewSubcategory, addNewCategory, manageCategoriesListeners } from './manage-categories.js';
 import { closePopup } from './sweetalert2/src/instanceMethods.js';
 const nameElement = document.querySelector('#markernameInput');

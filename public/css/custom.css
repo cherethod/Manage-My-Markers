@@ -177,3 +177,25 @@
 #filesBtn2 > svg {
   transform: rotateY(180deg);
 }
+
+#contentContainer.left  {
+  flex-direction: row;
+}
+#contentContainer.left > #sidebarContainer {
+  flex-direction: row;
+}
+#contentContainer.left > #sidebarContainer > #miniSidebarIcons > .sidebar__btn.active {
+  border: none;
+  border-left: 2px solid blue;
+}
+
+#contentContainer.right  {
+  flex-direction: row-reverse;
+}
+#contentContainer.right > #sidebarContainer {
+  flex-direction: row-reverse;
+}
+#contentContainer.right > #sidebarContainer > #miniSidebarIcons > .sidebar__btn.active {
+  border: none;
+  border-right: 2px solid blue;
+}
