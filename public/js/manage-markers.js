@@ -1,4 +1,4 @@
-// import { categories } from './menuFunctions.js';
+import { hideConfigContainers } from './menuFunctions.js';
 import { clearElement, loadDefaultCategories } from './functions.js';
 import { deleteEntryWarning, customWarning, understoodWarning } from './alerts.js';
 // import { loadSidebarMenuData } from './sidebar.js';
@@ -42,6 +42,17 @@ const searchAvailableID = () => {
       }
       if (idAvailable) return i;
     }
+}
+
+const resetEntryFormValues = ()=> {
+  nameElement.value = '';
+  categoryElement.selectedIndex = 0;
+  subcategoryElement.selectedIndex = 0;
+  descriptionElement.value = '';  
+  linkElement.value = '';
+  document.querySelector('#searchToolInput').value = "";
+  if (document.querySelector('.marker__icon--item.selected') != null) document.querySelector('.marker__icon--item.selected').classList.remove('selected');
+  document.querySelector('#selectedIconName').textContent = 'Select an icon...';
 }
 const checkURL = async () => {
   if (URLRegex()) {
@@ -942,54 +953,8 @@ const setInputActive = (value) => {
   linkElement.disabled = !value;
   descriptionElement.disabled = !value;  
 }  
-const hideConfigContainers = () => {
-  document.getElementById('configCategoriesContainer').classList.remove('active');
-  document.getElementById('configMarkersContainer').classList.remove('active');
-  document.getElementById('importCustomMarkersContainer').classList.remove('active');
-  document.getElementById('dbConfigOptions').classList.remove('active');
-}
-const resetEntryFormValues = ()=> {
-  nameElement.value = '';
-  categoryElement.selectedIndex = 0;
-  subcategoryElement.selectedIndex = 0;
-  descriptionElement.value = '';  
-  linkElement.value = '';
-  document.querySelector('#searchToolInput').value = "";
-  if (document.querySelector('.marker__icon--item.selected') != null) document.querySelector('.marker__icon--item.selected').classList.remove('selected');
-  document.querySelector('#selectedIconName').textContent = 'Select an icon...';
-}
 
-// JSON LOAD & SAVE
-const downloadJSON = async (object, filename) => {
-  const confirm = await customWarning('This action will download a file containing all the custom settings, categories, and markers you have edited or added. Are you sure you want to proceed?', 'Yes, download it', 'No, thanks');
-  if (confirm) {
-    const json = JSON.stringify(object);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
 
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-
-    link.click();
-  };
-};
-
-const importJSON = (file) => {
-  const reader = new FileReader();
-
-  reader.onload = async (e) => {
-    const content = e.target.result;
-    const importedCategories = JSON.parse(content);
-
-    const confirm = await customWarning('Do you want import this custom categories / markers file?');
-    if (confirm) {
-      localStorage.setItem('customCategories', JSON.stringify(importedCategories));
-    }
-  };
-
-  reader.readAsText(file);
-};
 
 const managementListeners = () => {
 
@@ -1021,71 +986,8 @@ const managementListeners = () => {
   });
   /* End edit and delete button section */
 
-  /* Show options when config icon is pressed */
-  document.getElementById('configDB').addEventListener('click', () => {
-    document.getElementById('dbConfigOptions').classList.toggle('active');
-  });
-  /* Show edit categories container */
-  document.getElementById('dbConfigOptions-editCategories').addEventListener('click', () => {
-    hideConfigContainers();
-    document.getElementById('configCategoriesContainer').classList.add('active');
-    showCategoryList();
-  });
-  /* Show edit markers container */
-  document.getElementById('dbConfigOptions-editMarkers').addEventListener('click', () => {
-    hideConfigContainers();
-   loadEntries();
-    resetEntryFormValues();
-    document.getElementById('configMarkersContainer').classList.add('active');
-  });
-  /* Show import custom settings container */
-  document.getElementById('dbConfigOptions-importCustomSettings').addEventListener('click', () => {
-    hideConfigContainers();
-    document.getElementById('importCustomMarkersContainer').classList.add('active');
-  });
+ 
 
-
-
-
-  /* Import / Export settings block */
-  document.getElementById('dbConfigOptions-exportCustomSettings').addEventListener('click', () => {
-    downloadJSON(categories, 'customMarkers.json')
-  });
-
-  dropBox.addEventListener('dragover', (e) => {
-    e.preventDefault();
-  });
-
-  dropBox.addEventListener('drop', async (e) => {
-    e.preventDefault();
-
-    const file = e.dataTransfer.files[0];
-
-    if (file.type === 'application/json') {
-      importJSON(file);
-    } else {
-      await understoodWarning('Please drag a valid JSON file.');
-    }
-  });
-
-  /* Import settings search file input function */
-  document.getElementById('dropBoxFileInput').addEventListener('click', () => {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'application/json';
-
-    fileInput.addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-
-      if (file.type === 'application/json') {
-        importJSON(file);
-      } else {
-        await understoodWarning('Please select a valid JSON file.');
-      }
-    });
-
-    fileInput.click();
-  });
 
 }
 

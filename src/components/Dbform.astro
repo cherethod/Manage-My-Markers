@@ -2,56 +2,12 @@
 import Select_icon from "./Select_icon.astro";
 ---
 
-<div class="db__container overflow-auto h-full">
-  <div class="flex flex-row text-white w-[95%] m-auto">
-    <div
-      id="configDB"
-      class="cursor-pointer self-end ml-auto relative pt-2"
-      title="Open setting options"
-    >
-      <div
-        id="dbConfigOptions"
-        class="absolute right-0 top-8 w-full min-w-max bg-[#1f1f1f] border z-10"
-      >
-        <ul
-          id="dbConfigNav"
-          class="block w-full [&>li]:py-1 [&>li]:px-4 [&>li]:border [&>li:hover]:bg-gray-500"
-        >
-          <li id="dbConfigOptions-editCategories">Edit categories</li>
-          <li id="dbConfigOptions-editMarkers">Edit markers</li>
-          <li id="dbConfigOptions-importCustomSettings">Import custom markers
-          </li>
-          <li id="dbConfigOptions-exportCustomSettings">
-            Export custom markers
-          </li>
-          <li id="dbConfigOptions_closeSettings">Close settings</li>
-        </ul>
-      </div>
-      <svg
-        width="24px"
-        height="24px"
-        stroke-width="1.5"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        color="currentColor"
-        ><path
-          d="M12 15a3 3 0 100-6 3 3 0 000 6z"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path><path
-          d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62V11l-2.378-.605z"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path></svg>
-    </div>
-  </div>
-  <div id="setDB" class="[&>div>div>h3]:py-2 [&>div>div>h3]:text-white">
+<div id="dbContainer" class="db__container overflow-auto h-full">
+  
+  <div id="setDB" class="[&>div>div>h3]:pt-2 [&>div>div>h3]:text-white pb-10">
     <div
       id="configCategoriesContainer"
-      class="grid-cols-2 w-full place-content-center [&>div]:w-[95%] [&>div]:mx-auto [&>div>div>input]:px-3"
+      class="grid-cols-2 w-full place-content-center mt-6 [&>div]:w-[95%] [&>div]:mx-auto [&>div>div>input]:px-3"
     >
       <div id="confiCategories-col1">
         <h3>Current categories</h3>
@@ -305,12 +261,7 @@ import Select_icon from "./Select_icon.astro";
   </div>
 </div>
 <style>
-#dbConfigOptions.active {
-    display: block;
-}
-#dbConfigOptions {
-    display: none;
-}
+
 #configCategoriesContainer {
     display: none;
 }
