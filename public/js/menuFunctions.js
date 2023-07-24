@@ -119,7 +119,8 @@ const enableEntriesListeners = () => {
 
   /* Import / Export settings block */
   document.getElementById('dbConfigOptions-exportCustomSettings').addEventListener('click', () => {
-    downloadJSON(categories, 'customMarkers.json')
+    categories = loadDefaultCategories();
+    downloadJSON(categories, 'customMarkers.json');
   });
 
   dropBox.addEventListener('dragover', (e) => {
