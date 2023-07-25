@@ -18,7 +18,7 @@ const hideConfigContainers = () => {
   document.getElementById('configCategoriesContainer').classList.remove('active');
   document.getElementById('configMarkersContainer').classList.remove('active');
   document.getElementById('importCustomMarkersContainer').classList.remove('active');
-  document.getElementById('dbConfigOptions').classList.remove('active');
+  //document.getElementById('dbConfigOptions').classList.remove('active');
 }
 
 const showDesktopContainer = ()=> {
@@ -78,15 +78,15 @@ const enableEntriesListeners = () => {
 
   /* Deactive setting options menu on leave */
   
-  document.querySelector('#dbConfigNav').addEventListener('mouseleave', ()=>{
-    if (document.querySelector('#dbConfigOptions').classList.contains('active')) document.querySelector('#dbConfigOptions').classList.remove('active')
-  });  
+  // document.querySelector('#dbConfigNav').addEventListener('mouseleave', ()=>{
+  //   if (document.querySelector('#dbConfigOptions').classList.contains('active')) document.querySelector('#dbConfigOptions').classList.remove('active')
+  // });  
 }
  /* Show options when config icon is pressed */
- document.getElementById('configDB').addEventListener('click', () => {
-  document.getElementById('dbConfigOptions').classList.toggle('active');
-  // document.getElementById('dbContainer').classList.toggle('active');
-});
+//  document.getElementById('configDB').addEventListener('click', () => {
+//   document.getElementById('dbConfigOptions').classList.toggle('active');
+//   // document.getElementById('dbContainer').classList.toggle('active');
+// });
 
   /* Show edit categories container */
   document.getElementById('dbConfigOptions-editCategories').addEventListener('click', () => {
@@ -110,11 +110,11 @@ const enableEntriesListeners = () => {
     document.getElementById('importCustomMarkersContainer').classList.add('active');
   });
  
- /* close all settings container */
+ /* close all settings container
  document.getElementById('dbConfigOptions-closeSettings').addEventListener('click', () => {
   hideConfigContainers();
   showDesktopContainer();
-});
+});*/
 
 
   /* Import / Export settings block */
@@ -167,4 +167,4 @@ activeIconSelector();
 resetEntryFormValues();
 
 loadEntries();
-export {hideConfigContainers}
+export {hideConfigContainers, showDesktopContainer}

@@ -1,6 +1,6 @@
 import { clearElement, loadDefaultCategories  } from './functions.js';
 import {loadSidebarMenuData, searcherListeners} from './searcher.js';
-
+import {hideConfigContainers, showDesktopContainer} from './menuFunctions.js'
 // import { setInputActive, categoryElement, subcategoryElement, linkElement, resetEntryFormValues, loadEntries, hideConfigContainers, URLRegex, insertLink, managementListeners, isEditing, deleteBtnSVG } from "./manage-markers.js";
 const sideBar = document.querySelector('#contentContainer').children[0];
 const extensionSideBar = document.querySelector('#sidebar-extension');
@@ -28,7 +28,8 @@ const toggleSidebarContent = (id) => {
           return '.sidebar__searcher--container';
         case 'filesBtn3':
           return '.sidebar__extensions--container';
-        // Add more cases for other buttons if needed
+        case 'filesBtnCfg':
+          return '.sidebar__config--container';
         default:
           return '';
       }
@@ -59,9 +60,10 @@ const sidebarListeners = () => {
   sidebarElements.forEach(sidebarbtn => {
     sidebarbtn.addEventListener('click', (e) => {
         const parentContainer = e.target.closest('.sidebar__btn');
-        if (parentContainer.classList.contains('active')) {
+        if (document.querySelector('#filesBtnCfg').classList.contains('active')) showDesktopContainer();
+        if (parentContainer.classList.contains('active')) {          
         parentContainer.classList.remove('active');
-        
+      
         document.querySelector(toggleSidebarContent(parentContainer.id)).classList.remove('active')
         // parentContainer.style.border = 'none';
         document.getElementById('sidebar-extension').style.width = '0px';

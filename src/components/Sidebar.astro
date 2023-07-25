@@ -9,6 +9,27 @@
         <div id="filesBtn3" class="sidebar__btn">
             <svg width='42px' height='42px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125"><title>Extensions</title><g><path d="M65.45,53.17H46.82V34.55a2,2,0,0,0-2-2H24.2a2,2,0,0,0-2,2V75.79a2,2,0,0,0,2,2H65.45a2,2,0,0,0,2-2V55.17A2,2,0,0,0,65.45,53.17Zm-39.25,4H42.82V73.79H26.2Zm16.62-4H26.2V36.55H42.82ZM63.45,73.79H46.83V57.17H63.45Z" fill='currentColor'/><path d="M75.8,22.21H55.18a2,2,0,0,0-2,2V44.83a2,2,0,0,0,2,2H75.8a2,2,0,0,0,2-2V24.21A2,2,0,0,0,75.8,22.21Zm-2,20.62H57.18V26.21H73.8Z" fill='currentColor'/></g></svg>
         </div>
+        <div id="filesBtnCfg" class="sidebar__btn self-end">
+          <svg
+          width="24px"
+          height="24px"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="currentColor"
+          ><path
+            d="M12 15a3 3 0 100-6 3 3 0 000 6z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path><path
+            d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62V11l-2.378-.605z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path></svg>
+        </div>
     </div>
     <div id="sidebar-extension" class="bg-[#181818] w-[0px] h-full transition-all ease-in-out text-white [&>ul>li]:pl-8 [&>ul]:flex">
         <nav class="sidebar__nav--container">           
@@ -176,6 +197,21 @@
             </li>
             
           </ul>
+        </nav>
+        <nav class="sidebar__config--container">
+          <ul
+              id=""
+              class="[&>li]:py-2 [&>li]:pl-2 [&>li]:cursor-pointer [&>li:hover]:bg-gray-500/60"
+            >
+              <li id="dbConfigOptions-editCategories">Edit categories</li>
+              <li id="dbConfigOptions-editMarkers">Edit markers</li>
+              <li id="dbConfigOptions-importCustomSettings">Import custom markers
+              </li>
+              <li id="dbConfigOptions-exportCustomSettings">
+                Export custom markers
+              </li>
+              <!-- <li id="dbConfigOptions-closeSettings">Close settings</li> -->
+            </ul>
         </nav>
     </div>
 </div>

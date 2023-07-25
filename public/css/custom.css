@@ -57,14 +57,14 @@
 #importCustomMarkersContainer.active {
   display: flex;
 }
-.sidebar__nav--container, .sidebar__searcher--container, .sidebar__extensions--container {
+.sidebar__nav--container, .sidebar__searcher--container, .sidebar__extensions--container, .sidebar__config--container {
   display: none;
   user-select: none;
 }
 .sidebar__nav--container.active {
   display: block;
 }
-.sidebar__extensions--container.active {
+.sidebar__extensions--container.active, .sidebar__config--container.active {
   display: block;
 }
 .sidebar__searcher--container.active {
