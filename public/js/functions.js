@@ -15,12 +15,6 @@ const loadDefaultCategories = ()=> {
                 "CSS and Styles": {
                     "Icons": [
                         {
-                            "name": "Font Awesome",
-                            "description": "The web's most popular icon set and toolkit.",
-                            "URL": "https://fontawesome.com/",
-                            "icon": "css3"
-                        },
-                        {
                             "name": "Material Icons",
                             "description": "Material icons are delightful, beautifully crafted symbols for common actions and items.",
                             "URL": "https://material.io/resources/icons/",
@@ -42,6 +36,12 @@ const loadDefaultCategories = ()=> {
                             "name": "Simple Icons",
                             "description": "Free SVG icons library for most popular brands and products.",
                             "URL": "https://simpleicons.org/",
+                            "icon": "media-image-folder"
+                        },
+                        {
+                            "name": "Font Awesome",
+                            "description": "The web's most popular icon set and toolkit.",
+                            "URL": "https://fontawesome.com/",
                             "icon": "media-image-folder"
                         }
                     ],
@@ -203,6 +203,24 @@ const loadDefaultCategories = ()=> {
                             "description": "Copy and paste this Glassmorphism CSS snippet into your frontend project for an amazing CSS glass effect.",
                             "URL": "https://css.glass/",
                             "icon": "css3"
+                        },
+                        {
+                            "name": "CSS flexbox generator",
+                            "description": "Flexbox is a way to layout elements to accommodate different screen sizes. Flexbox does not rely on floats and margins, and the flex container's margins don't collapse with the margins of its contents. Note that some browsers need prefixes to use these features.",
+                            "URL": "https://www.cssportal.com/css-flexbox-generator/",
+                            "icon": "css3"
+                        },
+                        {
+                            "name": "Flexy Boxes",
+                            "description": "Online CSS flexbox playground and code generator. Supports all existing flexbox implementations.",
+                            "URL": "https://the-echoplex.net/flexyboxes/",
+                            "icon": "css3"
+                        },
+                        {
+                            "name": "HTML Table generator",
+                            "description": "Free and easy to use online HTML Tables generator -- enter table data and paste the generated code into your website.",
+                            "URL": "https://www.tablesgenerator.com/html_tables",
+                            "icon": "html5"
                         }
                     ]
                 },
