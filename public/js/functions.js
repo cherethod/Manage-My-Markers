@@ -263,7 +263,7 @@ const loadDefaultCategories = () => {
               "description": "Explore front-end code and demos in the browser.",
               "URL": "https://codepen.io/",
               "icon": "github"
-            },           
+            },
             {
               "name": "Stack Overflow",
               "description": "Get answers to programming questions from a community of developers.",
@@ -409,6 +409,14 @@ const loadDefaultCategories = () => {
               "description": "10 challenges for web developers",
               "URL": "https://github.com/gndx/gndx-challenges",
               "icon": "javascript"
+            }
+          ],
+          "Languages Exercises": [
+            {
+              "name": "Exercism",
+              "description": "Develop fluency in 67 programming languages with our unique blend of learning, practice and mentoring. Exercism is fun, effective and 100% free, forever.",
+              "URL": "https://exercism.org/",
+              "icon": "brain"
             }
           ]
         },
