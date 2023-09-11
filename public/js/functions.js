@@ -43,6 +43,12 @@ const loadDefaultCategories = () => {
               "description": "The web's most popular icon set and toolkit.",
               "URL": "https://fontawesome.com/",
               "icon": "media-image-folder"
+            },
+            {
+              "name": "Tabler Icons",
+              "description": "Over 4650 pixel-perfect icons for web design  Free and open source icons designed to make your website or app attractive, visually consistent and simply beautiful.",
+              "URL": "https://tabler-icons.io/",
+              "icon": "media-image-folder"
             }
           ],
           "Gradients": [
@@ -488,6 +494,20 @@ const loadDefaultCategories = () => {
               "name": "FL0",
               "description": "Deploy backend applications and databases in minutes. Say goodbye to complex cloud infrastructure.",
               "URL": "https://www.fl0.com/",
+              "icon": "cloud-upload"
+            }
+          ],
+          "API's": [
+            {
+              "name": "Random User",
+              "description": "Random User Generator  A free, open-source API for generating random user data. Like Lorem Ipsum, but for people. ",
+              "URL": "https://randomuser.me/",
+              "icon": "cloud-upload"
+            },
+            {
+              "name": "Reqres",
+              "description": "Test your front-end against a real API. Develop with real response codes. GET, POST, PUT & DELETE supported. 24/7 access in your development phases. Go nuts.",
+              "URL": "https://reqres.in/",
               "icon": "cloud-upload"
             }
           ]
