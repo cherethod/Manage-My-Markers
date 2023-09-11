@@ -340,6 +340,14 @@ const loadDefaultCategories = () => {
               "URL": "https://excalidraw.com/",
               "icon": "pc-check"
             }
+          ],
+          "Converters": [
+            {
+              "name": "Quicktype",
+              "description": "Convert JSON into gorgeous, typesafe code in any language.",
+              "URL": "https://quicktype.io/",
+              "icon": "keyframes"
+            }
           ]
         },
         "Tutorials and Exercises": {
