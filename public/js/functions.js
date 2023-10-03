@@ -49,6 +49,12 @@ const loadDefaultCategories = () => {
               "description": "Over 4650 pixel-perfect icons for web design  Free and open source icons designed to make your website or app attractive, visually consistent and simply beautiful.",
               "URL": "https://tabler-icons.io/",
               "icon": "media-image-folder"
+            },
+            {
+              "name": "Hero Icons",
+              "description": "Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.",
+              "URL": "https://heroicons.com/",
+              "icon": "media-image-folder"
             }
           ],
           "Gradients": [
@@ -228,6 +234,14 @@ const loadDefaultCategories = () => {
               "URL": "https://www.tablesgenerator.com/html_tables",
               "icon": "html5"
             }
+          ],
+          "JSON": [
+            {
+              "name": "JSON data AI",
+              "description": "Get JSON data about anything depending on your prompt. Define your structure, list results.",
+              "URL": "https://www.jsondataai.com/",
+              "icon": "brain"
+            }
           ]
         },
         "Converters and tools": {
@@ -375,6 +389,18 @@ const loadDefaultCategories = () => {
               "description": "Find quickly all the class names and CSS properties with this interactive cheat sheet. The only Tailwind CheatSheet you will ever need!",
               "URL": "https://tailwindcomponents.com/cheatsheet/",
               "icon": "tailwindcss"
+            },
+            {
+              "name": "React doc",
+              "description": "React documentation oficial site.",
+              "URL": "https://react.dev/",
+              "icon": "react"
+            },
+            {
+              "name": "React JS Wiki",
+              "description": "React wiki by dev community in spanish.",
+              "URL": "https://www.reactjs.wiki/",
+              "icon": "react"
             }
           ],
           "Logic Exercises": [
