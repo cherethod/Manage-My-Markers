@@ -545,6 +545,36 @@ const loadDefaultCategories = () => {
               "icon": "cloud-upload"
             }
           ]
+        },
+        "Game Dev": {
+          "Mapping": [
+            {
+              "name": "Polygon map generator",
+              "description": "This map generator creates volcanic island style maps. The simplest way to explore the maps is to click the plus/minus arrows to change the Seed.",
+              "URL": "https://www.redblobgames.com/maps/mapgen2/",
+              "icon": "puzzle"
+            },
+            {
+              "name": "Azgaar's Fantasy Map Generator",
+              "description": "Fantasy Map Generator is a free open source tool by Azgaar. You may use auto-generated maps as they are, edit them or even create a new map from scratch.",
+              "URL": "https://azgaar.github.io/Fantasy-Map-Generator/",
+              "icon": "puzzle"
+            },
+            {
+              "name": "Map creator",
+              "description": "This map creator tool will allow you to the create a whole world of your own design using well over 1400 different images. I included natural parts for the inner landscape, like forests, mountains and hills.",
+              "URL": "https://rollforfantasy.com/tools/map-creator.php",
+              "icon": "puzzle"
+            }
+          ],
+          "Assets": [
+            {
+              "name": "Itch IO game assets",
+              "description": "itch.io is an open marketplace for independent digital creators with a focus on independent video games.",
+              "URL": "https://itch.io/game-assets",
+              "icon": "media-image-folder"
+            }
+          ]
         }
       }
     )
