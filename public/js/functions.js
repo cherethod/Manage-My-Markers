@@ -458,6 +458,20 @@ const loadDefaultCategories = () => {
               "URL": "https://exercism.org/",
               "icon": "brain"
             }
+          ],
+          "Other Exercises": [
+            {
+              "name": "Khanacademy Algorithms (Spanish)",
+              "description": "Nos hemos asociado con los profesores Tom Cormen y Devin Balkcom del Dartmouth College, para enseñar algoritmos introductorios de ciencias de la computación, incluyendo búsquedas, ordenamientos, recursiones y teoría de grafos. Aprende con una combinación de artículos, visualizaciones, cuestionarios y desafíos de programación.",
+              "URL": "https://es.khanacademy.org/computing/computer-science/algorithms",
+              "icon": "brain"
+            },
+            {
+              "name": "Khanacademy Algorithms",
+              "description": "We've partnered with Dartmouth college professors Tom Cormen and Devin Balkcom to teach introductory computer science algorithms, including searching, sorting, recursion, and graph theory. Learn with a combination of articles, visualizations, quizzes, and coding challenges.",
+              "URL": "https://www.khanacademy.org/computing/computer-science/algorithms",
+              "icon": "default"
+            }
           ]
         },
         "Libraries and Collections": {
@@ -484,6 +498,18 @@ const loadDefaultCategories = () => {
               "name": "Collect UI",
               "description": "A popular website that featured a collection of user interface  design inspiration. Discover  design concepts, patterns, and trends for web and mobile applications.",
               "URL": "https://collectui.com/",
+              "icon": "light-bulb-on"
+            },
+            {
+              "name": "Dark Themed web designs inspiration",
+              "description": "The best hand-picked dark themed websites on the internet.",
+              "URL": "https://www.dark.design/",
+              "icon": "light-bulb-on"
+            },
+            {
+              "name": "Bento Grids",
+              "description": "Bento Grids is a curated collection of tiles-based layouts that were popularized by Apple with their summary slides.",
+              "URL": "https://bentogrids.com/",
               "icon": "light-bulb-on"
             }
           ]
@@ -543,6 +569,14 @@ const loadDefaultCategories = () => {
               "description": "Test your front-end against a real API. Develop with real response codes. GET, POST, PUT & DELETE supported. 24/7 access in your development phases. Go nuts.",
               "URL": "https://reqres.in/",
               "icon": "cloud-upload"
+            }
+          ],
+          "Component libraries": [
+            {
+              "name": "Shadcn",
+              "description": "Build your component library. Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+              "URL": "https://ui.shadcn.com/docs/components/accordion",
+              "icon": "book-stack"
             }
           ]
         },
