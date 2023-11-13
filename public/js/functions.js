@@ -421,6 +421,12 @@ const loadDefaultCategories = () => {
               "description": "Practice coding, prepare for interviews, and get hired.",
               "URL": "https://www.hackerrank.com/",
               "icon": "react"
+            },
+            {
+              "name": "AdventJS",
+              "description": "24 días 24 retos de programación - Retos de lógica y buenas prácticas en JavaScript",
+              "URL": "https://adventjs.dev/es",
+              "icon": "javascript"
             }
           ],
           "Game Exercises": [
@@ -577,6 +583,14 @@ const loadDefaultCategories = () => {
               "description": "Build your component library. Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
               "URL": "https://ui.shadcn.com/docs/components/accordion",
               "icon": "book-stack"
+            }
+          ],
+          "Help": [
+            {
+              "name": "GIT Command Explorer",
+              "description": "Find the right commands you need without digging through the web.",
+              "URL": "https://gitexplorer.com/",
+              "icon": "github"
             }
           ]
         },
