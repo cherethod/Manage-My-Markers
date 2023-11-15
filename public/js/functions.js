@@ -361,6 +361,12 @@ const loadDefaultCategories = () => {
               "description": "Convert JSON into gorgeous, typesafe code in any language.",
               "URL": "https://quicktype.io/",
               "icon": "keyframes"
+            },
+            {
+              "name": "CloudConvert",
+              "description": "CloudConvert is an online file converter. We support nearly all audio, video, document, ebook, archive, image, spreadsheet, and presentation formats. To get started, use the button below and select files to convert from your computer. ",
+              "URL": "https://cloudconvert.com/",
+              "icon": "settings"
             }
           ]
         },
@@ -401,6 +407,12 @@ const loadDefaultCategories = () => {
               "description": "React wiki by dev community in spanish.",
               "URL": "https://www.reactjs.wiki/",
               "icon": "react"
+            },
+            {
+              "name": "GIT - La guía sencilla",
+              "description": "just a simple guide for getting started with git. no deep shit ;)",
+              "URL": "https://rogerdudler.github.io/git-guide/index.html",
+              "icon": "github"
             }
           ],
           "Logic Exercises": [
