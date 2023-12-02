@@ -68,8 +68,7 @@ const Desktop = {
             const markerIconNode = markerIconsTemplate.content.cloneNode(true);
             let markerLink = markerIconNode.querySelector('.icon__marker--name');
             markerLink.textContent = marker.name;
-            console.log(marker);
-            // console.log(marker);
+            markerLink.src = marker.URL;
             fragment.appendChild(markerIconNode);
         }
         this.desktopContainer.appendChild(fragment);
