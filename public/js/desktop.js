@@ -67,8 +67,12 @@ const Desktop = {
             // console.log(marker)
             const markerIconNode = markerIconsTemplate.content.cloneNode(true);
             let markerLink = markerIconNode.querySelector('.icon__marker--name');
-            markerLink.textContent = marker.name;
-            markerLink.src = marker.URL;
+            markerLink.children[1].textContent = marker.name;
+            markerLink.children[0].children[0].setAttribute('xlink:href', `./img/Icons/icons.svg#${marker.icon}`);
+            markerLink.setAttribute('title', `${marker.description}`);
+            markerLink.href = marker.URL;
+            console.log(marker);
+            // markerLink.setAttribute('target', '_blank')
             fragment.appendChild(markerIconNode);
         }
         this.desktopContainer.appendChild(fragment);

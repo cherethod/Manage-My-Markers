@@ -194,6 +194,38 @@ const loadDefaultCategories = () => {
               "URL": "https://ui-buttons.web.app/",
               "icon": "css3"
             }
+          ],
+          "Libraries": [
+            {
+              "name": "Floating UI",
+              "description": "A JavaScript library to position floating elements and create interactions for them.",
+              "URL": "https://floating-ui.com/",
+              "icon": "screenshot"
+            },
+            {
+              "name": "Atropos JS",
+              "description": "Atropos is a lightweight, free and open-source JavaScript library to create stunning touch-friendly 3D parallax hover effects. Available for JavaScript, React and as WebComponent (for use with Angular, Vue, Svelte, Solid and other frameworks).",
+              "URL": "https://atroposjs.com/",
+              "icon": "screenshot"
+            },
+            {
+              "name": "Swiper",
+              "description": "Swiper is the most modern free and open source mobile touch slider with hardware accelerated transitions and amazing native behavior. Use it on websites, web apps, and mobile native/hybrid apps.",
+              "URL": "https://swiperjs.com/",
+              "icon": "screenshot"
+            },
+            {
+              "name": "Toastify JS",
+              "description": "Toastify is a lightweight, vanilla JS toast notification library.",
+              "URL": "https://apvarun.github.io/toastify-js/",
+              "icon": "javascript"
+            },
+            {
+              "name": "Tailwindcss animated",
+              "description": "Build your custom animations with ease. Add the animation plugin to your Tailwind CSS project and generate your animation using the configurator.",
+              "URL": "https://www.tailwindcss-animated.com/",
+              "icon": "tailwindcss"
+            }
           ]
         },
         "Generators": {
@@ -393,7 +425,7 @@ const loadDefaultCategories = () => {
             {
               "name": "Tailwind Cheat Sheet",
               "description": "Find quickly all the class names and CSS properties with this interactive cheat sheet. The only Tailwind CheatSheet you will ever need!",
-              "URL": "https://tailwindcomponents.com/cheatsheet/",
+              "URL": "https://csscomponents.com/cheatsheet/",
               "icon": "tailwindcss"
             },
             {
