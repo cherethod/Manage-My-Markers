@@ -66,7 +66,9 @@ const Desktop = {
         for (const marker of this.categories[category][subcategory]) {
             // console.log(marker)
             const markerIconNode = markerIconsTemplate.content.cloneNode(true);
-            markerIconNode.querySelector('.icon__marker--name').textContent = marker.name;
+            let markerLink = markerIconNode.querySelector('.icon__marker--name');
+            markerLink.textContent = marker.name;
+            console.log(marker);
             // console.log(marker);
             fragment.appendChild(markerIconNode);
         }
