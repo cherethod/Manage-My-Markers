@@ -536,6 +536,14 @@ const loadDefaultCategories = () => {
                         "URL": "https://www.khanacademy.org/computing/computer-science/algorithms",
                         "icon": "default"
                     }
+                ],
+                "Roadmaps": [
+                    {
+                        "name": "Aprende Rust",
+                        "description": "Navega hacia la maestría en Rust con este roadmap cuidadosamente diseñado. Desde los fundamentos hasta el desarrollo de sistemas y contribuciones a la comunidad, este plan de aprendizaje te guiará con éxito. ¡Descubre el camino hacia la excelencia en el lenguaje de programación Rust!",
+                        "URL": "https://rustlanges.github.io/aprende",
+                        "icon": "repository"
+                    }
                 ]
             },
             "Libraries and Collections": {
